@@ -31,25 +31,27 @@ const TabNavigator = () => {
     }}>
       <Tab.Screen name="Home" component={Home} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={50} />
+          <MaterialCommunityIcons name="home" color={'#7B8D9E'} size={40} />
         ),
           tabBarLabelStyle: {
             'fontSize': 15,
+             'color': "#7B8D9E",
 
           },
           tabBarStyle:{
-            height:70,
+            height:55,
           }
           }}></Tab.Screen>
       <Tab.Screen name="Perfil" component={Perfil} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="account" color={color} size={50} />
+          <MaterialCommunityIcons name="account" color={'#7B8D9E'} size={40} />
         ),
         tabBarLabelStyle: {
           'fontSize': 15,
+          'color': "#7B8D9E",
         },
         tabBarStyle:{
-          height:70,
+          height:55,
         }
       }}></Tab.Screen>
     </Tab.Navigator>
