@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { BackHandler, SafeAreaView, Text, View } from "react-native";
+import { Alert, BackHandler, SafeAreaView, Text, View } from "react-native";
 
-export default function Home() {
+export default function Home({navigation}) {
     useEffect(() => {
   
         const backAction = () => {

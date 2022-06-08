@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import * as global from '../utils/context';
 import { AXIOS } from '../connection/conecction';
+import { Button } from 'react-native-paper';
 
 
 
@@ -14,16 +15,11 @@ const Login = ({navigation}) => {
   const { signIn } = useContext(global.AuthContext);
   const [alert, setAlert] = useState(false);
   const [mensaje, setMensaje] = useState('');
-  const [init, setInit] = useState(false);
-  const [usuario, setUsuario] = useState();
+  const [cargando, setCargando] = useState(false);
+
   const showAlert = () => {
    setAlert(true)
   };
-
- 
-
-
-
 
 const loginNormal = async (correo, ci) => {
   
@@ -31,12 +27,14 @@ const loginNormal = async (correo, ci) => {
     correo,
     password: ci
   }
+
   try {
+    setCargando(true);
     const res = await AXIOS.then(res => {
       return res.post("auth/login", body)
     })
-    console.log(res.data)
     if(res.data.status){
+      setCargando(false)
       guardarToken(res.data.token, 'token');
       guardarToken(JSON.stringify(res.data.usuario), 'usuario')
       signIn();
@@ -46,7 +44,7 @@ const loginNormal = async (correo, ci) => {
       // })
     }
   } catch (error) {
-    console.log(error)
+    setCargando(false);
     setAlert(false);
     setMensaje("Revise sus datos e inténtelo nuevamente");
     showAlert();
@@ -149,30 +147,22 @@ const guardarToken = async (usuario, nombre) => {
 
          
                 <View style={styles.colorBtn}>
-                <TouchableHighlight
-                underlayColor="#0000"
-                  style={{
-                    backgroundColor:"#43BAC1",
-                    alignItems:'center',
-                    height:38,
-                    width:300,
-                  }}
-                  onPress={() => {loginNormal(values.email, values.password)}
-                }
-                >
-                  <Text style={{
-                    color:'white',
-                    fontWeight:'bold',
-                    fontSize: 18,
-                    paddingTop:6
-                  }}>Iniciar sesión</Text>
-                </TouchableHighlight>
+                <Button mode="contained" disabled={false} onPress={() => {loginNormal(values.email, values.password)}} style={{
+                  backgroundColor:"#43BAC1",
+                  alignItems:'center',
+                  height:38,
+                  width:300,
+                  borderRadius:10
+                }} loading={cargando}>
+                  Iniciar Sesión
+                </Button>
                 </View>
                 <View style={styles.colorBtn}>
                 <TouchableHighlight
-                underlayColor="#0000"
+                underlayColor="#EC6461"
                   style={{
                     backgroundColor:"#E62D28",
+                    borderRadius:10,
                     alignItems:'center',
                     height:38,
                     width:300,
@@ -183,9 +173,10 @@ const guardarToken = async (usuario, nombre) => {
                   <Text style={{
                     color:'white',
                     fontWeight:'bold',
-                    fontSize: 18,
-                    paddingTop:6
-                  }}>Registrarse</Text>
+                    fontSize: 14,
+                    paddingTop:8,
+                    letterSpacing: 2
+                  }}>REGISTRARSE</Text>
                 </TouchableHighlight>
                 </View>
               </>
