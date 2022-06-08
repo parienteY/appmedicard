@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './screens/Login';
 import { useMemo, useState } from 'react';
 import Home from './screens/Home';
-import Perfil from './screens/Perfil';
+import PerfilUser from '.screens/PerfilUser';
 import Registro from './screens/Registro';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -42,7 +42,7 @@ const TabNavigator = () => {
             height:55,
           }
           }}></Tab.Screen>
-      <Tab.Screen name="Perfil" component={Perfil} options={{
+      <Tab.Screen name="Perfil" component={PerfilUser} options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="account" color={'#7B8D9E'} size={40} />
         ),
