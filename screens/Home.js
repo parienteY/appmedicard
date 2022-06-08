@@ -1,11 +1,38 @@
 import { useEffect, useState } from "react";
 import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert,  } from "react-native";
-import { color } from "react-native-elements/dist/helpers";
 import {obtenerUsuario} from '../utils/helpers'
+import Carousel from 'react-native-snap-carousel';
 
 export default function Home({navigation}) {
   const [usuario, setUsuario] = useState({});
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const carouselItems = [
+    {
+      id: "1",
+      image: require("../assets/img/1.jpg")
+    },
+    {
+      id: "2",
+      image: require("../assets/img/2.jpg")
+    },
+    {
+      id: "3",
+      image: require("../assets/img/3.jpg")
+    },
+    {
+      id: "4",
+      image: require("../assets/img/4.jpg")
+    },
+    {
+      id: "5",
+      image: require("../assets/img/5.jpg")
+    },
+    {
+      id: "6",
+      image: require("../assets/img/6.jpg")
+    }
+  ]
     useEffect(() => {
       const usuario = async() => {
         const res = await obtenerUsuario();
@@ -38,7 +65,21 @@ export default function Home({navigation}) {
         return () => backHandler.remove();
       
         
-      }, [])
+      }, []);
+
+     const renderItem = ({item, index}) => {
+        return (
+            <View>
+                <Image 
+                resizeMode="cover"
+                style={{  
+                  width:150,
+                  height:150                
+                }} source={item.image}></Image>
+            </View>
+        );
+    }
+
     return(
         <SafeAreaView style={{
           justifyContent:"center",
@@ -230,13 +271,24 @@ export default function Home({navigation}) {
         width: 370,
         marginBottom: 20,
       }}>
-        <Image source={require('../assets/img/1.jpg')}
+         <Carousel
+                 layout={"default"}
+                 ref={ref => this.carousel = ref}
+                 data={carouselItems}
+                 sliderWidth={300}
+                 itemWidth={360}
+                 autoplay={true}
+                 autoplayDelay={2}
+                 loop={true}
+                 renderItem={renderItem}
+                 onSnapToItem = { index => setActiveIndex(index) } />
+        {/* <Image source={require('../assets/img/1.jpg')}
             style = {{ 
               width: 367, 
               height: 187,
               borderRadius: 20,
               borderWidth: 1.5, }}
-            ></Image>
+            ></Image> */}
         </View>
           </ScrollView>
         </SafeAreaView>
