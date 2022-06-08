@@ -91,8 +91,10 @@ const guardarToken = async (usuario, nombre) => {
             marginTop:150,
             alignItems:"center"
           }}>
-            <Image source={require('../assets/img/MEDICARD.png')}
-            style = {{ width: 200, height: 200 }}
+            <Image source={require('../assets/img/Logo.png')}
+            style = {{ 
+              width: 125, 
+              height: 125 }}
             ></Image>
           <Formik
             validateOnMount={true}
@@ -127,7 +129,7 @@ const guardarToken = async (usuario, nombre) => {
                   {(errors.email && touched.email) &&
                     <Text style={styles.errorText}>{errors.email}</Text>
                   }
-                    <TextInput style={styles.email} 
+                    <TextInput style={styles.password} 
                   placeholder="Carnet de identidad..."
                   label='Carnet de identidad'
                   onChangeText={handleChange('password')}
@@ -171,7 +173,7 @@ const guardarToken = async (usuario, nombre) => {
                 }
                 >
                   <Text style={{
-                    color:'white',
+                    color:'#E62D28',
                     fontWeight:'bold',
                     fontSize: 14,
                     paddingTop:8,
@@ -220,26 +222,23 @@ const styles = StyleSheet.create({
     color: Colors.dark,
     fontSize: 18,
     backgroundColor:'white',
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20, 
+    marginTop: 75,
     fontWeight: '600',
-    paddingLeft: 10,
     borderRadius: 7,
-    paddingRight: 12,
     alignSelf:"center",
     height:50,
     width:"80%",
-    borderColor:'#43BAC1',
-    borderWidth:3,
-    shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 8,
-      },
-      shadowOpacity: 0.3,
-      shadowRadius: 13.00,
-      elevation: 16,
+  },
+  password: {
+    color: Colors.dark,
+    fontSize: 18,
+    backgroundColor:'white',
+    marginTop: 30,
+    fontWeight: '600',
+    borderRadius: 7,
+    alignSelf:"center",
+    height:50,
+    width:"80%",
   }, 
  
   colorBtn: {

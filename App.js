@@ -9,7 +9,7 @@ import { useMemo, useState } from 'react';
 import Home from './screens/Home';
 import Perfil from './screens/Perfil';
 import Registro from './screens/Registro';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,10 +20,40 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
     screenOptions={{
+      tabBarItemStyle:{
+        borderWidth:0,
+        shadowOffset: {
+          width: 0,
+          height: 12,
+        },
+    },
       headerShown:false,
     }}>
-      <Tab.Screen name="Home" component={Home}></Tab.Screen>
-      <Tab.Screen name="Perfil" component={Perfil}></Tab.Screen>
+      <Tab.Screen name="Home" component={Home} options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={'#7B8D9E'} size={40} />
+        ),
+          tabBarLabelStyle: {
+            'fontSize': 15,
+             'color': "#7B8D9E",
+
+          },
+          tabBarStyle:{
+            height:55,
+          }
+          }}></Tab.Screen>
+      <Tab.Screen name="Perfil" component={Perfil} options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="account" color={'#7B8D9E'} size={40} />
+        ),
+        tabBarLabelStyle: {
+          'fontSize': 15,
+          'color': "#7B8D9E",
+        },
+        tabBarStyle:{
+          height:55,
+        }
+      }}></Tab.Screen>
     </Tab.Navigator>
   )
 }
