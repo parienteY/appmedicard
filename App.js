@@ -54,6 +54,7 @@ const TabNavigator = () => {
           height:55,
         }
       }}></Tab.Screen>
+      
     </Tab.Navigator>
   )
 }

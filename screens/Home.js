@@ -60,12 +60,14 @@ export default function Home({navigation}) {
           <Text style={{
                     color:'black',
                     fontSize: 17,
+                    marginTop: 20,
                   }}>👋 Hola!</Text>
+
                   <Text style={{
                     color:'black',
                     fontWeight:'bold',
                     fontSize: 20,
-                    marginTop: 10,
+                    marginTop: 1,
                     marginStart: 25,
                   }}>{usuario.nombres}</Text>
         </View>
@@ -228,7 +230,7 @@ export default function Home({navigation}) {
         borderWidth: 1.5,
         height: 190,
         width: 370,
-        marginBottom: 20,
+        marginBottom: 100,
       }}>
         <Image source={require('../assets/img/1.jpg')}
             style = {{ 

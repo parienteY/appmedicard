@@ -13,7 +13,12 @@ export default function Perfil(){
        })
       }
     return (
-        <View>
+        
+        <View style={{
+            color:'black',
+            fontSize: 17,
+            marginTop: 100,
+          }}>
             <Text>Perfil</Text>
             <Button title='Cerrar Sesion' color="red" onPress={cerrarSesion}></Button>
         </View>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Image , StyleSheet} from 'react-native';
 
+
 const  Profile= () => {
   return (
     <View style={styles.container}>
