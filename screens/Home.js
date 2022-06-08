@@ -1,11 +1,17 @@
-import { useEffect } from "react";
-import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image,  } from "react-native";
+import { useEffect, useState } from "react";
+import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert,  } from "react-native";
 import { color } from "react-native-elements/dist/helpers";
-
+import {obtenerUsuario} from '../utils/helpers'
 
 export default function Home({navigation}) {
+  const [usuario, setUsuario] = useState({});
+
     useEffect(() => {
-  
+      const usuario = async() => {
+        const res = await obtenerUsuario();
+        setUsuario(res)
+      }
+      usuario();
         const backAction = () => {
           if(navigation.isFocused()){
             Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
@@ -39,31 +45,29 @@ export default function Home({navigation}) {
           alignItems:'center',
           backgroundColor: "white", 
         }}>
-
+          <ScrollView>
         <View
       style={{
         flexDirection: "row",
-        height : 70,
-        width : 730,
-        marginStart: 365,
-        marginTop: 100,
+
+        marginStart: 5,
+        marginTop: 40,
     
       }}>
       <View 
       style={{ 
-        backgroundColor: "white", 
-        flex: 0.5,}} >
+        backgroundColor: "white"}} >
           <Text style={{
                     color:'black',
-                    fontSize: 20,
+                    fontSize: 17,
                   }}>👋 Hola!</Text>
                   <Text style={{
                     color:'black',
                     fontWeight:'bold',
-                    fontSize: 25,
+                    fontSize: 20,
                     marginTop: 10,
                     marginStart: 25,
-                  }}>Nombre de Usuario</Text>
+                  }}>{usuario.nombres}</Text>
         </View>
         </View>
     
@@ -234,6 +238,7 @@ export default function Home({navigation}) {
               borderWidth: 1.5, }}
             ></Image>
         </View>
+          </ScrollView>
         </SafeAreaView>
     )
   }

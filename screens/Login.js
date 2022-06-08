@@ -93,8 +93,8 @@ const guardarToken = async (usuario, nombre) => {
           }}>
             <Image source={require('../assets/img/Logo.png')}
             style = {{ 
-              width: 125, 
-              height: 125 }}
+              width: 200, 
+              height: 200 }}
             ></Image>
           <Formik
             validateOnMount={true}
@@ -114,16 +114,20 @@ const guardarToken = async (usuario, nombre) => {
               <>
         
                 <TextInput style={styles.email} 
+
                   placeholder="Correo electronico..."
                   onChangeText={handleChange('email')}
                   label='Correo electronico'
                   onBlur={handleBlur('email')}
                   value={values.email}
+                  
                   keyboardType="email-address"
+                  outlineColor="#43BAC1"
                   theme={{
                     colors: {
-                      primary: 'black',underlineColor:'white'}
+                      primary: '#43BAC1'}
                   }}
+                  mode="outlined"
                   /> 
  
                   {(errors.email && touched.email) &&
@@ -137,10 +141,12 @@ const guardarToken = async (usuario, nombre) => {
                   value={values.password}
                   secureTextEntry={true}
                   keyboardType="default"
+                  outlineColor="#43BAC1"
                   theme={{
                     colors: {
-                      primary: 'black',underlineColor:'white'}
+                      primary: '#43BAC1'}
                   }}
+                  mode="outlined"
                    /> 
  
                   {(errors.password && touched.password) &&
@@ -173,7 +179,7 @@ const guardarToken = async (usuario, nombre) => {
                 }
                 >
                   <Text style={{
-                    color:'#E62D28',
+                    color:'white',
                     fontWeight:'bold',
                     fontSize: 14,
                     paddingTop:8,
@@ -222,7 +228,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
     fontSize: 18,
     backgroundColor:'white',
-    marginTop: 75,
+    marginTop: 40,
     fontWeight: '600',
     borderRadius: 7,
     alignSelf:"center",
@@ -233,7 +239,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
     fontSize: 18,
     backgroundColor:'white',
-    marginTop: 30,
+    marginTop: 10,
     fontWeight: '600',
     borderRadius: 7,
     alignSelf:"center",

@@ -21,3 +21,8 @@ export const obtenerToken =  async () => {
   return token;
 }
 
+export const obtenerUsuario = async () => {
+  const usuario = await AsyncStorage.getItem("usuario");
+  return JSON.parse(usuario);
+}
+
