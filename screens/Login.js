@@ -44,6 +44,7 @@ const loginNormal = async (correo, ci) => {
       // })
     }
   } catch (error) {
+    console.log(error)
     setCargando(false);
     setAlert(false);
     setMensaje("Revise sus datos e inténtelo nuevamente");

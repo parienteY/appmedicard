@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Image , StyleSheet, ScrollView} from 'react-native';
 
 
-const  CitasMedicas= ({navigation}) => {
+const CitasMedicas= ({navigation}) => {
     return (
     <ScrollView
     style={{

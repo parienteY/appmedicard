@@ -10,6 +10,7 @@ import Home from './screens/Home';
 import Registro from './screens/Registro';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from './screens/PerfilUser';
+import CitasMedicas from './screens/CitasMedicas';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -76,13 +77,14 @@ export default function App() {
         <NavigationContainer
         >
           {
-            isLogin? (
+            !isLogin? (
               <Stack.Navigator 
               screenOptions={{
                 headerShown: false,
                 
               }}>
                 <Stack.Screen name='App' component={TabNavigator}></Stack.Screen>
+                <Stack.Screen name="Citas" component={CitasMedicas}></Stack.Screen>
               </Stack.Navigator>
             ):(
               <LoginStack.Navigator 
