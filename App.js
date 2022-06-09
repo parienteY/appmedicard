@@ -10,6 +10,10 @@ import Home from './screens/Home';
 import Registro from './screens/Registro';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from './screens/PerfilUser';
+import CitasMedicas from './screens/CitasMedicas';
+import Emergencias from './screens/Emergencias';
+import LaboratorioClinico from './screens/LaboratorioClinico';
+import Operaciones from './screens/Operaciones';
 import Perfil from './screens/Perfil';
 
 const Stack = createNativeStackNavigator();
@@ -77,13 +81,17 @@ export default function App() {
         <NavigationContainer
         >
           {
-            isLogin? (
+            !isLogin? (
               <Stack.Navigator 
               screenOptions={{
                 headerShown: false,
                 
               }}>
                 <Stack.Screen name='App' component={TabNavigator}></Stack.Screen>
+                <Stack.Screen name="Citas" component={CitasMedicas}></Stack.Screen>
+                <Stack.Screen name="Emergencias" component={Emergencias}></Stack.Screen>
+                <Stack.Screen name="LaboratorioClinico" component={LaboratorioClinico}></Stack.Screen>
+                <Stack.Screen name="Operaciones" component={Operaciones}></Stack.Screen>
               </Stack.Navigator>
             ):(
               <LoginStack.Navigator 
@@ -93,6 +101,7 @@ export default function App() {
               }}>
                 <LoginStack.Screen name='Login' component={Login}></LoginStack.Screen>
                 <LoginStack.Screen name='Registro' component={Registro}></LoginStack.Screen>
+                <LoginStack.Screen name='CitasMedicas' component={CitasMedicas}></LoginStack.Screen>
               </LoginStack.Navigator>
             )
           }
