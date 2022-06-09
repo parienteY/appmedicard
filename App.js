@@ -10,6 +10,7 @@ import Home from './screens/Home';
 import Registro from './screens/Registro';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from './screens/PerfilUser';
+import Perfil from './screens/Perfil';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -44,7 +45,7 @@ const TabNavigator = () => {
             height:55,
           }
           }}></Tab.Screen>
-      <Tab.Screen name="Perfil" component={Profile} options={{
+      <Tab.Screen name="Perfil" component={Perfil} options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="account" color={color} size={40} />
         ),
