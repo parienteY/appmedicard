@@ -20,6 +20,9 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
     screenOptions={{
+      tabBarActiveBackgroundColor:"#43BAC1",
+      tabBarActiveTintColor:"white",
+      tabBarInactiveBackgroundColor:"white",
       tabBarItemStyle:{
         borderWidth:0,
         shadowOffset: {
@@ -31,11 +34,10 @@ const TabNavigator = () => {
     }}>
       <Tab.Screen name="Home" component={Home} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={'#7B8D9E'} size={40} />
+          <MaterialCommunityIcons name="home" color={color} size={40} />
         ),
           tabBarLabelStyle: {
             'fontSize': 15,
-             'color': "#7B8D9E",
 
           },
           tabBarStyle:{
@@ -44,11 +46,10 @@ const TabNavigator = () => {
           }}></Tab.Screen>
       <Tab.Screen name="Perfil" component={Profile} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="account" color={'#7B8D9E'} size={40} />
+          <MaterialCommunityIcons name="account" color={color} size={40} />
         ),
         tabBarLabelStyle: {
           'fontSize': 15,
-          'color': "#7B8D9E",
         },
         tabBarStyle:{
           height:55,

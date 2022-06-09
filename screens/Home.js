@@ -74,7 +74,7 @@ export default function Home({navigation}) {
                 resizeMode="contain"
                 style={{  
                   height: 190,
-                  width: 370,
+                  width: 370               
                 }} source={item.image}></Image>
             </View>
         );
