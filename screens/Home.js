@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert,  } from "react-native";
+import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert, TouchableHighlight,  } from "react-native";
 import {obtenerUsuario} from '../utils/helpers'
 import Carousel from 'react-native-snap-carousel';
 
@@ -32,7 +32,8 @@ export default function Home({navigation}) {
       id: "6",
       image: require("../assets/img/6.jpg")
     }
-  ]
+  ];
+
     useEffect(() => {
       const usuario = async() => {
         const res = await obtenerUsuario();
@@ -130,14 +131,20 @@ export default function Home({navigation}) {
         height: 250,
         padding: 30,
       }}>
-      <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, 
-        marginEnd: 30, }} >
+      <TouchableHighlight
+      underlayColor="#43BAC1"
+      style={{
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 20,
+            borderColor:'#d7deea',
+            borderWidth: 1,
+            flex: 0.5, 
+            marginEnd: 30, 
+      }} onPress={() => navigation.push("Citas")}>
+      <View 
+      style={{ 
+       }} >
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
@@ -161,6 +168,7 @@ export default function Home({navigation}) {
                     marginTop: 10,
                   }}>Citas Medicas</Text>
         </View>
+      </TouchableHighlight>
 
         <View style={{ 
         justifyContent:"center",
