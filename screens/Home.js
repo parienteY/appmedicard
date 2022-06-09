@@ -161,7 +161,8 @@ export default function Home({navigation}) {
                   }}>🩺</Text>
 
         </View>
-        <Text style={{
+        <Text
+        style={{
                     color:'#4A545E',
                     fontWeight:'bold',
                     fontSize: 15,
@@ -170,13 +171,17 @@ export default function Home({navigation}) {
         </View>
       </TouchableHighlight>
 
-        <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, }} >
+        <TouchableHighlight
+      underlayColor="#43BAC1"
+      style={{
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 20,
+            borderColor:'#d7deea',
+            borderWidth: 1,
+            flex: 0.5, 
+      }} onPress={() => navigation.push("Emergencias")}>
+        <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
@@ -198,7 +203,9 @@ export default function Home({navigation}) {
                     fontSize: 15,
                     marginTop: 10,
                   }}>Emergencias</Text>
-        </View>
+                  </View>
+
+        </TouchableHighlight>
     </View>
 
     <View
@@ -208,7 +215,8 @@ export default function Home({navigation}) {
         padding: 30,
         marginTop: -30,
       }}>
-      <View style={{ 
+          
+      <TouchableHighlight  onPress={() => navigation.push("LaboratorioClinico")} style={{ 
         justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
@@ -216,6 +224,7 @@ export default function Home({navigation}) {
         borderWidth: 1,
         flex: 0.5, 
         marginEnd: 30, }} >
+          <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
@@ -238,15 +247,17 @@ export default function Home({navigation}) {
                     marginTop: 10,
                   }}>Laboratorio Clinico</Text>
         </View>
+        </TouchableHighlight>
 
-        <View style={{ 
+        <TouchableHighlight onPress={() => navigation.push("LaboratorioClinico")} style={{ 
         justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
         borderColor:'#d7deea',
         borderWidth: 1,
         flex: 0.5, }} >
-          <View style={{ 
+          <View>
+          <View   style={{ 
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 20,
@@ -267,7 +278,8 @@ export default function Home({navigation}) {
                     fontSize: 15,
                     marginTop: 10,
                   }}>Operaciones</Text>
-        </View>
+                  </View>
+                  </TouchableHighlight>
     </View>
 
     <View
@@ -281,19 +293,7 @@ export default function Home({navigation}) {
         width: 370,
         marginBottom: 100,
       }}>
-         <Carousel
-                 layout={"default"}
-                 ref={ref => this.carousel = ref}
-                 data={carouselItems}
-                 sliderWidth={300}
-                 itemWidth={360}
-                 autoplay={true}
-                 autoplayDelay={3}
-                 enableMomentum={true}
-                 lockScrollWhileSnapping={true}
-                 loop={true}
-                 renderItem={renderItem}
-                 onSnapToItem = { index => setActiveIndex(index) } />
+         
         {/* <Image source={require('../assets/img/1.jpg')}
             style = {{ 
               width: 367, 
