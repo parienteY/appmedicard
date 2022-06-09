@@ -18,16 +18,20 @@ const  Profile= () => {
           <View style={styles.header}>
             <View style={styles.headerContent}>
                 <Image style={styles.avatar}  
-                  source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
+                  source={{uri: 'https://jogi-bear.de/wp-content/uploads/2020/02/LogoMakr_ich.png'}}/>
+                <Text style={styles.name}>Nombre De Usuario:</Text>  
                 <Text style={styles.name}>{usuario.nombres}</Text>
-                <Text style={styles.userInfo}>correo</Text>       
+                <Text style={styles.name}>Correo:</Text> 
+                <Text style={styles.userInfo}>{usuario.email}</Text>       
             </View>
           </View>
 
           <View style={styles.body}>
             <View style={styles.item}>
               <View style={styles.infoContent}>
-                <Text style={styles.info}>Dias Aviles Con Tarjeta Medicard :</Text>
+                <Text style={styles.info}>Dias Aviles</Text>
+                <Text style={styles.info}>Con</Text>
+                <Text style={styles.info}>Tarjeta Medicard:</Text>
                 <Text style={styles.info}>120</Text>                
               </View>
             </View>     
@@ -40,7 +44,7 @@ const  Profile= () => {
 }
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: "#1C6BA4",
+    backgroundColor: "#43BAC1",
     flex:1,
     padding: 20
   },
@@ -80,10 +84,13 @@ const styles = StyleSheet.create({
   },
   infoContent:{
     flex:1,
-    paddingLeft:5
+    paddingLeft:5,
+    borderRadius: 20,
+    backgroundColor: "#E62D28",
+    margin: 20,
   },
   info:{
-    fontSize:18,
+    fontSize:25,
     marginTop:20,
     color: "#000000",
     textAlign: "center"
