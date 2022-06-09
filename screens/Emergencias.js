@@ -15,13 +15,12 @@ const  Emergencias= ({navigation}) => {
         backgroundColor: 'white',
         marginTop: 90,
         }}>
-        <Image source={require('../assets/img/1.jpg')}
-            style = {{ 
-              width: 80, 
-              height: 80,
-              borderRadius: 20,
-              borderWidth: 1.5, }}
-            ></Image>
+        <Text style={{
+                    color:'black',
+                    fontWeight:'bold',
+                    fontSize: 40,
+                    marginTop: 20,
+                  }}>Descuento de : 70%</Text>
         </View>
         <View
       style={{

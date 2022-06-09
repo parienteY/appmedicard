@@ -15,13 +15,12 @@ const CitasMedicas= ({navigation}) => {
         backgroundColor: 'white',
         marginTop: 90,
         }}>
-        <Image source={require('../assets/img/1.jpg')}
-            style = {{ 
-              width: 80, 
-              height: 80,
-              borderRadius: 20,
-              borderWidth: 1.5, }}
-            ></Image>
+        <Text style={{
+                    color:'black',
+                    fontWeight:'bold',
+                    fontSize: 40,
+                    marginTop: 20,
+                  }}>Descuento de : 70%</Text>
         </View>
         <View
       style={{
@@ -48,8 +47,7 @@ const CitasMedicas= ({navigation}) => {
         <View
       style={{
         flexDirection: "row",
-        
-        marginStart: 10,
+        marginStart: 30,
         marginTop: 10,
     
       }}>
@@ -59,7 +57,7 @@ const CitasMedicas= ({navigation}) => {
           <Text style={{
                     color:'#E62D28',
                     fontWeight:'bold',
-                    fontSize: 20,
+                    fontSize: 25,
                     marginTop: 20,
                   }}>Clinicas</Text>
         </View>

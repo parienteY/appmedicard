@@ -119,9 +119,10 @@ export default function Home({navigation}) {
         <Text style={{
                     color:'black',
                     fontWeight:'bold',
-                    fontSize: 18,
+                    fontSize: 25,
                     marginBottom: -20,
                     marginTop: 20,
+                    marginStart: 30
                   }}>Servicios</Text>
 
 
@@ -131,6 +132,7 @@ export default function Home({navigation}) {
         height: 250,
         padding: 30,
       }}>
+        
       <TouchableHighlight
       underlayColor="#43BAC1"
       style={{
@@ -138,13 +140,23 @@ export default function Home({navigation}) {
             alignItems:'center',
             borderRadius: 20,
             borderColor:'#d7deea',
+            backgroundColor: '#f3f3f5',
             borderWidth: 1,
             flex: 0.5, 
             marginEnd: 30, 
       }} onPress={() => navigation.push("Citas")}>
+        
       <View 
       style={{ 
        }} >
+         <Text
+        style={{
+                    color:'#4A545E',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 0,
+                    marginBottom:20
+                  }}>Citas Medicas</Text>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
@@ -152,22 +164,16 @@ export default function Home({navigation}) {
             borderColor:'#becada',
             borderWidth: 1,
             //backgroundColor: "#43BAC1",
-            width: 135,
+            width: 110,
             padding: 30,
-            flex: 0.5, }} >
+            flex: 0.8, }} >
           
           <Text style={{
                     fontSize: 35,
                   }}>🩺</Text>
 
         </View>
-        <Text
-        style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 10,
-                  }}>Citas Medicas</Text>
+        
         </View>
       </TouchableHighlight>
 
@@ -178,6 +184,7 @@ export default function Home({navigation}) {
             alignItems:'center',
             borderRadius: 20,
             borderColor:'#d7deea',
+            backgroundColor: '#f3f3f5',
             borderWidth: 1,
             flex: 0.5, 
       }} onPress={() => navigation.push("Emergencias")}>
@@ -189,9 +196,9 @@ export default function Home({navigation}) {
             borderColor:'#becada',
             borderWidth: 1,
             //backgroundColor: "#43BAC1",
-            width: 135,
+            width: 110,
             padding: 30,
-            flex: 0.5, }} >
+            flex: 0.8, }} >
           
           <Text style={{
                     fontSize: 35,
@@ -201,7 +208,7 @@ export default function Home({navigation}) {
                     color:'#4A545E',
                     fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 10,
+                    marginTop: 15,
                   }}>Emergencias</Text>
                   </View>
 
@@ -216,15 +223,19 @@ export default function Home({navigation}) {
         marginTop: -30,
       }}>
           
-      <TouchableHighlight  onPress={() => navigation.push("LaboratorioClinico")} style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, 
-        marginEnd: 30, }} >
-          <View>
+          <TouchableHighlight
+      underlayColor="#43BAC1"
+      style={{
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 20,
+            borderColor:'#d7deea',
+            backgroundColor: '#f3f3f5',
+            borderWidth: 1,
+            marginEnd: 30, 
+            flex: 0.5, 
+      }} onPress={() => navigation.push("LaboratorioClinico")}>
+        <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
@@ -232,29 +243,33 @@ export default function Home({navigation}) {
             borderColor:'#becada',
             borderWidth: 1,
             //backgroundColor: "#43BAC1",
-            width: 135,
+            width: 110,
             padding: 30,
-            flex: 0.5, }} >
-              <Text style={{
+            flex: 0.8, }} >
+          
+          <Text style={{
                     fontSize: 35,
                   }}>💊</Text>
-          
         </View>
         <Text style={{
                     color:'#4A545E',
                     fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 10,
-                  }}>Laboratorio Clinico</Text>
-        </View>
+                    marginTop: 15,
+                  }}>Emergencias</Text>
+                  </View>
+
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => navigation.push("LaboratorioClinico")} style={{ 
+        <TouchableHighlight 
+        underlayColor="#43BAC1"
+        onPress={() => navigation.push("LaboratorioClinico")} style={{ 
         justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
         borderColor:'#d7deea',
-        borderWidth: 1,
+            backgroundColor: '#f3f3f5',
+            borderWidth: 1,
         flex: 0.5, }} >
           <View>
           <View   style={{ 
@@ -264,9 +279,9 @@ export default function Home({navigation}) {
             borderColor:'#becada',
             borderWidth: 1,
             //backgroundColor: "#43BAC1",
-            width: 135,
+            width: 110,
             padding: 30,
-            flex: 0.5, }} >
+            flex: 0.8, }} >
               <Text style={{
                     fontSize: 35,
                   }}>💉</Text>
@@ -294,13 +309,13 @@ export default function Home({navigation}) {
         marginBottom: 100,
       }}>
          
-        {/* <Image source={require('../assets/img/1.jpg')}
+        { <Image source={require('../assets/img/3.jpg')}
             style = {{ 
               width: 367, 
               height: 187,
               borderRadius: 20,
               borderWidth: 1.5, }}
-            ></Image> */}
+            ></Image> }
         </View>
           </ScrollView>
         </SafeAreaView>
