@@ -71,10 +71,10 @@ export default function Home({navigation}) {
         return (
             <View>
                 <Image 
-                resizeMode="cover"
+                resizeMode="contain"
                 style={{  
-                  width:150,
-                  height:150                
+                  height: 190,
+                  width: 370,
                 }} source={item.image}></Image>
             </View>
         );
@@ -280,7 +280,9 @@ export default function Home({navigation}) {
                  sliderWidth={300}
                  itemWidth={360}
                  autoplay={true}
-                 autoplayDelay={2}
+                 autoplayDelay={3}
+                 enableMomentum={true}
+                 lockScrollWhileSnapping={true}
                  loop={true}
                  renderItem={renderItem}
                  onSnapToItem = { index => setActiveIndex(index) } />
