@@ -99,7 +99,7 @@ export default function Home({ navigation }) {
         <SafeAreaView style={{
           justifyContent:"center",
           alignItems:'center',
-          backgroundColor: "white", 
+          backgroundColor: "#f2f4f8", 
         }}>
           <ScrollView>
         <View
@@ -113,6 +113,7 @@ export default function Home({ navigation }) {
           style={{
             flexDirection: "row",
 
+<<<<<<< Updated upstream
             marginStart: 5,
             marginTop: 40,
           }}
@@ -144,14 +145,46 @@ export default function Home({ navigation }) {
               {usuario.nombres}
             </Text>
           </View>
+=======
+        marginStart: 5,
+        marginTop: 40,
+    
+      }}>
+      <View 
+      style={{ 
+        backgroundColor: "#f2f4f8"}} >
+          <Text style={{
+                    color:'#2c2f33',
+                    fontWeight:'bold',
+                    fontSize: 30,
+                    marginTop: 20,
+                  }}>👋 Hola!</Text>
+                  
+                  <Image source={require('../assets/img/MEDICARD.png')}
+                          style = {{ 
+                          width: 85, 
+                          height: 85,
+                          marginStart: 300,
+                          marginTop: -50,}}>
+                          </Image>
+
+                  <Text style={{
+                    color:'#101213',
+                    fontWeight:'bold',
+                    fontSize: 20,
+                    marginTop: 1,
+                    marginStart: 40,
+                    marginTop: -30,
+                  }}>{usuario.nombres}</Text>
+>>>>>>> Stashed changes
         </View>
         </View>
     
 
         <Text style={{
-                    color:'black',
+                    color:'#57636c',
                     fontWeight:'bold',
-                    fontSize: 25,
+                    fontSize: 30,
                     marginBottom: -20,
                     marginTop: 20,
                     marginStart: 30
@@ -182,9 +215,9 @@ export default function Home({ navigation }) {
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 20,
-            borderColor:'#d7deea',
-            backgroundColor: '#f3f3f5',
-            borderWidth: 1,
+            borderColor:'#dddfe2',
+            backgroundColor: '#ffffff',
+            borderWidth: 1.5,
             flex: 0.5, 
             marginEnd: 30, 
       }} onPress={() => navigation.push("Citas")}>
@@ -192,21 +225,11 @@ export default function Home({ navigation }) {
       <View 
       style={{ 
        }} >
-         <Text
-        style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 0,
-                    marginBottom:20
-                  }}>Citas Medicas</Text>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
+            borderRadius: 100,
+            backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
@@ -216,7 +239,13 @@ export default function Home({ navigation }) {
                   }}>🩺</Text>
 
         </View>
-        
+        <Text
+        style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 15,
+                  }}>Citas Medicas</Text>
         </View>
       </TouchableHighlight>
 
@@ -226,19 +255,17 @@ export default function Home({ navigation }) {
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 20,
-            borderColor:'#d7deea',
-            backgroundColor: '#f3f3f5',
-            borderWidth: 1,
+            borderColor:'#dddfe2',
+            backgroundColor: '#ffffff',
+            borderWidth: 1.5,
             flex: 0.5, 
       }} onPress={() => navigation.push("Emergencias")}>
         <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
+            borderRadius: 100,
+            backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
@@ -248,7 +275,7 @@ export default function Home({ navigation }) {
                   }}>🚨</Text>
         </View>
         <Text style={{
-                    color:'#4A545E',
+                    color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
@@ -272,9 +299,9 @@ export default function Home({ navigation }) {
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 20,
-            borderColor:'#d7deea',
-            backgroundColor: '#f3f3f5',
-            borderWidth: 1,
+            borderColor:'#dddfe2',
+            backgroundColor: '#ffffff',
+            borderWidth: 1.5,
             marginEnd: 30, 
             flex: 0.5, 
       }} onPress={() => navigation.push("LaboratorioClinico")}>
@@ -282,10 +309,8 @@ export default function Home({ navigation }) {
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
+            borderRadius: 100,
+            backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
@@ -295,11 +320,11 @@ export default function Home({ navigation }) {
                   }}>💊</Text>
         </View>
         <Text style={{
-                    color:'#4A545E',
+                    color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
-                  }}>Emergencias</Text>
+                  }}>Laboratorio Clinico</Text>
                   </View>
 
         </TouchableHighlight>
@@ -310,18 +335,16 @@ export default function Home({ navigation }) {
         justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
-        borderColor:'#d7deea',
-            backgroundColor: '#f3f3f5',
-            borderWidth: 1,
+        borderColor:'#dddfe2',
+        backgroundColor: '#ffffff',
+        borderWidth: 1.5,
         flex: 0.5, }} >
           <View>
           <View   style={{ 
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
+            borderRadius: 100,
+            backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
@@ -331,7 +354,7 @@ export default function Home({ navigation }) {
           
         </View>
         <Text style={{
-                    color:'#4A545E',
+                    color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 10,
@@ -350,14 +373,16 @@ export default function Home({ navigation }) {
         height: 190,
         width: 370,
         marginBottom: 100,
+        marginStart:10
       }}>
          
-        { <Image source={require('../assets/img/3.jpg')}
+        {<Image source={require('../assets/img/1.jpg')}
             style = {{ 
               width: 367, 
               height: 187,
               borderRadius: 20,
-              borderWidth: 1.5, }}
+              borderWidth: 1.5,
+             }}
             ></Image> }
         </View>
       </ScrollView>

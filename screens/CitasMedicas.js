@@ -6,6 +6,7 @@ import { Text, View, Image, StyleSheet, ScrollView, TouchableHighlight } from 'r
 const CitasMedicas = (props, { navigation }) => {
   return (
     <ScrollView
+<<<<<<< Updated upstream
       style={{
         backgroundColor: 'white',
       }}>
@@ -32,6 +33,35 @@ const CitasMedicas = (props, { navigation }) => {
           marginTop: 40,
 
         }}>
+=======
+    style={{
+        backgroundColor: '#f2f4f8',
+        }}>
+        <View
+        style={{
+        justifyContent:"center",
+        alignItems:'center',
+        marginTop: 90,
+        
+        }}>
+        <Text style={{
+                    color:'black',
+                    fontWeight:'bold',
+                    fontSize: 25,
+                    marginTop: 20,
+                  }}>Descuento de:</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 40,
+                    marginTop: 20,
+                    borderRadius: 100,
+                    backgroundColor: "#eaeaf3",
+                   
+                    padding: 30
+                  }}>70%</Text>
+        </View>
+>>>>>>> Stashed changes
         <View
           style={{
             backgroundColor: "white"
