@@ -113,39 +113,6 @@ export default function Home({ navigation }) {
           style={{
             flexDirection: "row",
 
-<<<<<<< Updated upstream
-            marginStart: 5,
-            marginTop: 40,
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: "white",
-            }}
-          >
-            <Text
-              style={{
-                color: "black",
-                fontSize: 17,
-                marginTop: 20,
-              }}
-            >
-              👋 Hola!
-            </Text>
-
-            <Text
-              style={{
-                color: "black",
-                fontWeight: "bold",
-                fontSize: 20,
-                marginTop: 1,
-                marginStart: 25,
-              }}
-            >
-              {usuario.nombres}
-            </Text>
-          </View>
-=======
         marginStart: 5,
         marginTop: 40,
     
@@ -176,10 +143,9 @@ export default function Home({ navigation }) {
                     marginStart: 40,
                     marginTop: -30,
                   }}>{usuario.nombres}</Text>
->>>>>>> Stashed changes
         </View>
         </View>
-    
+    </View>
 
         <Text style={{
                     color:'#57636c',
