@@ -17,6 +17,7 @@ function Pdfview({ route, navigation }) {
       </View>
       <View> */}
       <WebView
+        startInLoadingState
         source={{
           uri: `https://drive.google.com/viewerng/viewer?embedded=true&url=${uri}`,
           // uri: pdfUrl,

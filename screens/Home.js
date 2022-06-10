@@ -174,7 +174,7 @@ export default function Home(props,{ navigation }) {
       }}>
         
       <TouchableHighlight
-      underlayColor="#43BAC1"
+      underlayColor="#dc3545"
       style={{
             justifyContent:"center",
             alignItems:'center',
@@ -220,7 +220,7 @@ export default function Home(props,{ navigation }) {
       </TouchableHighlight>
 
         <TouchableHighlight
-      underlayColor="#43BAC1"
+      underlayColor="#dc3545"
       style={{
             justifyContent:"center",
             alignItems:'center',
@@ -270,7 +270,7 @@ export default function Home(props,{ navigation }) {
       }}>
           
           <TouchableHighlight
-      underlayColor="#43BAC1"
+      underlayColor="#dc3545"
       style={{
             justifyContent:"center",
             alignItems:'center',
@@ -312,7 +312,7 @@ export default function Home(props,{ navigation }) {
         </TouchableHighlight>
 
         <TouchableHighlight 
-        underlayColor="#43BAC1"
+        underlayColor="#dc3545"
         onPress={() => {props.navigation.navigate("Instituciones", { id: 5 })
       }} style={{ 
         justifyContent:"center",
@@ -359,7 +359,7 @@ export default function Home(props,{ navigation }) {
       }}>
           
           <TouchableHighlight
-      underlayColor="#43BAC1"
+      underlayColor="#dc3545"
       style={{
             justifyContent:"center",
             alignItems:'center',
@@ -401,7 +401,7 @@ export default function Home(props,{ navigation }) {
         </TouchableHighlight>
 
         <TouchableHighlight 
-        underlayColor="#43BAC1"
+        underlayColor="#dc3545"
         onPress={() => {props.navigation.navigate("Instituciones", { id: 2 })
       }} style={{ 
         justifyContent:"center",
@@ -446,6 +446,8 @@ export default function Home(props,{ navigation }) {
         alignItems:'center',
         borderRadius: 20,
         borderColor:'#d7deea',
+        //backgroundColor:'rgba(67,186,193,100)',
+        backgroundColor: 'white',
         borderWidth: 1.5,
         height: 250,
         width: 370,
@@ -455,27 +457,73 @@ export default function Home(props,{ navigation }) {
          <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
-                    fontSize: 15,
+                    fontSize: 25,
+                    marginTop: 10,
+                  }}>La tarjeta MEDICARD</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 25,
                     marginTop: 0,
-                  }}>La tarjeta MEDICARD te ofrece:</Text>
+                  }}>te ofrece:</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 15,
+                    
+                  }}>✓ Hasta 70% de descuento en</Text>
                   <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 0,
-                  }}>L✓ Hasta 70% de descuento en consultas médicas, laboratorios, diagnóstico por imagen y emergencia</Text>
+                  }}>consultas médicas, laboratorios, </Text>
                   <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 0,
-                  }}>✓ Hasta 30% de descuento en procedimientos quirúrgicos e internación. </Text>
+                  }}>diagnóstico por imagen y emergencia</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 15,
+                  }}>✓ Hasta 30% de descuento en</Text>
                   <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 0,
+                  }}>procedimientos quirúrgicos e internación.</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 30,
                   }}>Conoce las áreas específicas acá: </Text>
+                  <View>
+                  <TouchableHighlight 
+                  underlayColor="#43BAC1"
+                  style={{ 
+                  justifyContent:"center",
+                  alignItems:'center',
+                  borderRadius: 20,
+                  borderColor:'#dddfe2',
+                  backgroundColor: '#dc3545',
+                  marginTop: 25,
+                  width: 100,
+                  height: 80,
+                  borderWidth: 1.5,
+                  flex: 0.5, }}>
+                    <Text style={{
+                    color:'white',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                  }}>VER MAS</Text>
+                  </TouchableHighlight>
+                  </View>
         </View>
       </ScrollView>
     </SafeAreaView>
