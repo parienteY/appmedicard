@@ -81,7 +81,7 @@ export default function App() {
         <NavigationContainer
         >
           {
-            !isLogin? (
+            isLogin? (
               <Stack.Navigator 
               screenOptions={{
                 headerShown: false,

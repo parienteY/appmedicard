@@ -4,17 +4,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../utils/context";
 import {obtenerUsuario} from '../utils/helpers'
+import moment from "moment";
 
 export default function Perfil(){
     const {signOut} = useContext(AuthContext);
     const [usuario, setUsuario] = useState({});
+    const [diferencia, setDiferencia] = useState(0);
 
+   
     useEffect(() => {
         const usuario = async() => {
-            const res = await obtenerUsuario();
-            setUsuario(res)
-          }
-          usuario();
+            const  res = await obtenerUsuario();
+            setUsuario(res);
+            const fechaA = moment(new Date());
+            const fechaM = moment(res.fecha_activacion);
+            const fechaF = fechaM.add(1,"year");
+            console.log(fechaF, fechaA)
+            setDiferencia(fechaF.diff(fechaA, 'days')+1)
+        }
+        usuario();
     },[]);
     const cerrar = async () => {
         await AsyncStorage.clear().then(res => {
@@ -76,6 +84,7 @@ export default function Perfil(){
                 <View style={estilos.datos}>
                 <Text style={estilos.titulo}>Código</Text>
                 <Text style={estilos.contenido}>{usuario.codigo}</Text>
+                <Text>{diferencia}</Text>
                 </View>
                 </View>
                 <Button mode="contained" disabled={false} onPress={() =>

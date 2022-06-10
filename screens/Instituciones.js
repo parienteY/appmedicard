@@ -15,7 +15,7 @@ export default function Instituciones( {route,navigation}){
             direccion: "Av. Melchor Urquidi entre América y Buenos Aires N°1412",
             pagina: "www.clinicabuscamed.com",
             imagen:require("../assets/img/Buscamed.jpg"),
-            archivo:"https://www.0,medicard.com.bo/archivos/buscamed.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/buscamed.pdf"
         },
         {
             id: 2,
@@ -24,7 +24,7 @@ export default function Instituciones( {route,navigation}){
             direccion: "Av. Heroinas N°1147 entre Aurelio Melean y José Arauco",
             pagina: "siemen-rt@hotmail.com",
             imagen:require("../assets/img/Logo.png"),
-            archivo:"https://www.0,medicard.com.bo/archivos/redenfermeria.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/redenfermeria.pdf"
         },
         {
             id: 3,
@@ -35,7 +35,7 @@ export default function Instituciones( {route,navigation}){
             contactoS:"+591 (4)4496876 - +591 71428821",
             pagina: "unimagen2004@hotmail.com",
             imagen:require("../assets/img/Unimagen.jpg"),
-            archivo:"https://www.0,medicard.com.bo/archivos/unimagen.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/unimagen.pdf"
         },
         {
             id:4,
@@ -44,7 +44,7 @@ export default function Instituciones( {route,navigation}){
             contacto: "+591 (4)4461102 - +591 76462744",
             pagina: "vivianmonicachavezsubieta@hotmail.com",
             imagen:require("../assets/img/Bio-search.jpg"),
-            archivo:"https://www.0,medicard.com.bo/archivos/cold.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/cold.pdf"
         },
         {
             id: 5,
@@ -53,7 +53,7 @@ export default function Instituciones( {route,navigation}){
             contacto: "+591 (4)4510966 - +591 79748908",
             pagina:"laboratoriomarbella@gmail.com",
             imagen:require("../assets/img/Marbella.jpg"),
-            archivo:"https://www.0,medicard.com.bo/archivos/marbella.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/marbella.pdf"
         },
         {
             id:6,
@@ -62,7 +62,7 @@ export default function Instituciones( {route,navigation}){
             contacto: "+591 69422413",
             pagina: "contacto@clinicaloslirios.com",
             imagen:require("../assets/img/Lirios.jpg"),
-            archivo:"https://www.0,medicard.com.bo/archivos/lirios.pdf"
+            archivo:"https://www.medicard.com.bo/archivos/lirios.pdf"
         }
     ];
 
