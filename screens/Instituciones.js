@@ -23,7 +23,7 @@ export default function Instituciones( {route,navigation}){
             contacto: "+591 (4)4330631 - +591 72731699",
             direccion: "Av. Heroinas N°1147 entre Aurelio Melean y José Arauco",
             pagina: "siemen-rt@hotmail.com",
-            imagen:require("../assets/img/Logo.png"),
+            imagen:require("../assets/img/reenfermeria.jpeg"),
             archivo:"https://www.0,medicard.com.bo/archivos/redenfermeria.pdf"
         },
         {

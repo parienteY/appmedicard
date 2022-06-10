@@ -16,7 +16,7 @@ import {
 import { color } from "react-native-elements/dist/helpers";
 import { Button } from "react-native-paper";
 
-export default function Home({ navigation }) {
+export default function Home(props,{ navigation }) {
   const [usuario, setUsuario] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -106,7 +106,6 @@ export default function Home({ navigation }) {
       style={{
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "white",
       }}
     >
         <View
@@ -165,7 +164,6 @@ export default function Home({ navigation }) {
             marginTop: 20,
           }}
         >
-          Servicios
         </Text>
 
     <View
@@ -186,7 +184,8 @@ export default function Home({ navigation }) {
             borderWidth: 1.5,
             flex: 0.5, 
             marginEnd: 30, 
-      }} onPress={() => navigation.push("Citas")}>
+      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 6 })
+      }}>
         
       <View 
       style={{ 
@@ -195,14 +194,19 @@ export default function Home({ navigation }) {
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
-            backgroundColor: "#f1f4f7",
+            //backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
           
-          <Text style={{
-                    fontSize: 35,
-                  }}>🩺</Text>
+          <Image source={require('../assets/img/loslirios.jpeg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
 
         </View>
         <Text
@@ -211,7 +215,7 @@ export default function Home({ navigation }) {
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
-                  }}>Citas Medicas</Text>
+                  }}>Los Lirioss</Text>
         </View>
       </TouchableHighlight>
 
@@ -225,27 +229,33 @@ export default function Home({ navigation }) {
             backgroundColor: '#ffffff',
             borderWidth: 1.5,
             flex: 0.5, 
-      }} onPress={() => navigation.push("Emergencias")}>
+      }}  onPress={() => {props.navigation.navigate("Instituciones", { id: 4 })
+      }}>
         <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
-            backgroundColor: "#f1f4f7",
+            //backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
           
-          <Text style={{
-                    fontSize: 35,
-                  }}>🚨</Text>
+          <Image source={require('../assets/img/Coldent.jpeg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
         </View>
         <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
-                  }}>Emergencias</Text>
+                  }}>Coldent</Text>
                   </View>
 
         </TouchableHighlight>
@@ -270,34 +280,41 @@ export default function Home({ navigation }) {
             borderWidth: 1.5,
             marginEnd: 30, 
             flex: 0.5, 
-      }} onPress={() => navigation.push("LaboratorioClinico")}>
+      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 1 })
+    }}>
         <View>
           <View style={{ 
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
-            backgroundColor: "#f1f4f7",
+            //backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
           
-          <Text style={{
-                    fontSize: 35,
-                  }}>💊</Text>
+          <Image source={require('../assets/img/Buscamed.jpg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
         </View>
         <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
-                  }}>Laboratorio Clinico</Text>
+                  }}>BuscaMed</Text>
                   </View>
 
         </TouchableHighlight>
 
         <TouchableHighlight 
         underlayColor="#43BAC1"
-        onPress={() => navigation.push("LaboratorioClinico")} style={{ 
+        onPress={() => {props.navigation.navigate("Instituciones", { id: 5 })
+      }} style={{ 
         justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
@@ -310,13 +327,18 @@ export default function Home({ navigation }) {
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
-            backgroundColor: "#f1f4f7",
+            //backgroundColor: "#f1f4f7",
             width: 110,
             padding: 30,
             flex: 0.8, }} >
-              <Text style={{
-                    fontSize: 35,
-                  }}>💉</Text>
+              <Image source={require('../assets/img/Marbella.jpg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
           
         </View>
         <Text style={{
@@ -324,7 +346,96 @@ export default function Home({ navigation }) {
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 10,
-                  }}>Operaciones</Text>
+                  }}>Marbella</Text>
+                  </View>
+                  </TouchableHighlight>
+    </View>
+    <View
+      style={{
+        flexDirection: "row",
+        height: 250,
+        padding: 30,
+        marginTop: -30,
+      }}>
+          
+          <TouchableHighlight
+      underlayColor="#43BAC1"
+      style={{
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 20,
+            borderColor:'#dddfe2',
+            backgroundColor: '#ffffff',
+            borderWidth: 1.5,
+            marginEnd: 30, 
+            flex: 0.5, 
+      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 3 })
+    }}>
+        <View>
+          <View style={{ 
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 100,
+            //backgroundColor: "#f1f4f7",
+            width: 110,
+            padding: 30,
+            flex: 0.8, }} >
+          
+          <Image source={require('../assets/img/Unimagen.jpg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
+        </View>
+        <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 15,
+                  }}>Unimagen</Text>
+                  </View>
+
+        </TouchableHighlight>
+
+        <TouchableHighlight 
+        underlayColor="#43BAC1"
+        onPress={() => {props.navigation.navigate("Instituciones", { id: 2 })
+      }} style={{ 
+        justifyContent:"center",
+        alignItems:'center',
+        borderRadius: 20,
+        borderColor:'#dddfe2',
+        backgroundColor: '#ffffff',
+        borderWidth: 1.5,
+        flex: 0.5, }} >
+          <View>
+          <View   style={{ 
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 100,
+            //backgroundColor: "#f1f4f7",
+            width: 110,
+            padding: 30,
+            flex: 0.8, }} >
+              <Image source={require('../assets/img/reenfermeria.jpeg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
+          
+        </View>
+        <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 10,
+                  }}>Red de enfermeria</Text>
                   </View>
                   </TouchableHighlight>
     </View>
@@ -342,14 +453,7 @@ export default function Home({ navigation }) {
         marginStart:10
       }}>
          
-        {<Image source={require('../assets/img/1.jpg')}
-            style = {{ 
-              width: 367, 
-              height: 187,
-              borderRadius: 20,
-              borderWidth: 1.5,
-             }}
-            ></Image> }
+        { }
         </View>
       </ScrollView>
     </SafeAreaView>
