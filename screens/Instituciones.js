@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SafeAreaView, View, Text, Image, StyleSheet } from "react-native";
 import { Button } from 'react-native-paper';
 
-export default function Instituciones(props, {navigation}){
+export default function Instituciones( {route,navigation}){
     const [actual, setActual] = useState({});
     useEffect(() => {
         buscarPorId();
@@ -14,7 +14,8 @@ export default function Instituciones(props, {navigation}){
             contacto: "+591 (4)4333017 - +591 62604000",
             direccion: "Av. Melchor Urquidi entre América y Buenos Aires N°1412",
             pagina: "www.clinicabuscamed.com",
-            imagen:require("../assets/img/Buscamed.jpg")
+            imagen:require("../assets/img/Buscamed.jpg"),
+            archivo:"https://www.0,medicard.com.bo/archivos/buscamed.pdf"
         },
         {
             id: 2,
@@ -22,7 +23,8 @@ export default function Instituciones(props, {navigation}){
             contacto: "+591 (4)4330631 - +591 72731699",
             direccion: "Av. Heroinas N°1147 entre Aurelio Melean y José Arauco",
             pagina: "siemen-rt@hotmail.com",
-            imagen:require("../assets/img/Logo.png")
+            imagen:require("../assets/img/Logo.png"),
+            archivo:"https://www.0,medicard.com.bo/archivos/redenfermeria.pdf"
         },
         {
             id: 3,
@@ -32,7 +34,8 @@ export default function Instituciones(props, {navigation}){
             sucursal: "Sucursal Aniceto Padilla N°533 entre Recoleta y Potosí",
             contactoS:"+591 (4)4496876 - +591 71428821",
             pagina: "unimagen2004@hotmail.com",
-            imagen:require("../assets/img/Unimagen.jpg")
+            imagen:require("../assets/img/Unimagen.jpg"),
+            archivo:"https://www.0,medicard.com.bo/archivos/unimagen.pdf"
         },
         {
             id:4,
@@ -40,7 +43,8 @@ export default function Instituciones(props, {navigation}){
             direccion: "Calle Paso del Inca N°312 esq. Tupac Amaru Edificio Tarija 1er piso Of. B (Frente a la UPAL)",
             contacto: "+591 (4)4461102 - +591 76462744",
             pagina: "vivianmonicachavezsubieta@hotmail.com",
-            imagen:require("../assets/img/Bio-search.jpg")
+            imagen:require("../assets/img/Bio-search.jpg"),
+            archivo:"https://www.0,medicard.com.bo/archivos/cold.pdf"
         },
         {
             id: 5,
@@ -48,7 +52,8 @@ export default function Instituciones(props, {navigation}){
             direccion: "Av. San Martín N°147 entre Heroínas y Colimbia edificio Principito 2o piso Of. 4B",
             contacto: "+591 (4)4510966 - +591 79748908",
             pagina:"laboratoriomarbella@gmail.com",
-            imagen:require("../assets/img/Marbella.jpg")
+            imagen:require("../assets/img/Marbella.jpg"),
+            archivo:"https://www.0,medicard.com.bo/archivos/marbella.pdf"
         },
         {
             id:6,
@@ -56,13 +61,14 @@ export default function Instituciones(props, {navigation}){
             direccion: "Carlos Davis N°1518 entre av. Belzu y José Pol",
             contacto: "+591 69422413",
             pagina: "contacto@clinicaloslirios.com",
-            imagen:require("../assets/img/Lirios.jpg")
+            imagen:require("../assets/img/Lirios.jpg"),
+            archivo:"https://www.0,medicard.com.bo/archivos/lirios.pdf"
         }
     ];
 
     const buscarPorId = () => {
         instituciones.forEach(element => {
-            if(props.route.params.id === element.id){
+            if(route.params.id === element.id){
                 setActual(element);
             }
         });
@@ -99,7 +105,7 @@ export default function Instituciones(props, {navigation}){
                 }}
                 onPress={() => {
                     navigation.push("Pdf", {
-                      uri: "https://www.medicard.com.bo/archivos/precios.pdf",
+                      uri: actual.archivo,
                     });
                   }}>
                   VER PRECIOS CON MEDICARD

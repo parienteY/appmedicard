@@ -56,31 +56,7 @@ const Login = ({ navigation }) => {
       setMensaje("Revise sus datos e inténtelo nuevamente");
       showAlert();
     }
-<<<<<<< HEAD
-  } catch (error) {
-    console.log(error)
-    setCargando(false);
-    setAlert(false);
-    setMensaje("Revise sus datos e inténtelo nuevamente");
-    showAlert();
-  }
-  
-}
-
-
-
-const guardarToken = async (usuario, nombre) => {
-  try {
-    await AsyncStorage.setItem(nombre, usuario );
-    return true;
-  } catch (e) {
-    // saving error
-    return false;
-  }
-}
-=======
   };
->>>>>>> pdfview
 
   const guardarToken = async (usuario, nombre) => {
     try {

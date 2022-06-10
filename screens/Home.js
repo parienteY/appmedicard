@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert, TouchableHighlight,  } from "react-native";
 import {obtenerUsuario} from '../utils/helpers'
 import Carousel from 'react-native-snap-carousel';
 import {
@@ -12,10 +11,10 @@ import {
   ScrollView,
   Alert,
   Linking,
+  TouchableHighlight,
 } from "react-native";
 import { color } from "react-native-elements/dist/helpers";
 import { Button } from "react-native-paper";
-import { obtenerUsuario } from "../utils/helpers";
 
 export default function Home({ navigation }) {
   const [usuario, setUsuario] = useState({});
@@ -55,45 +54,30 @@ export default function Home({ navigation }) {
     };
     usuario();
     const backAction = () => {
-      if (navigation.isFocused()) {
+      if(navigation.isFocused()){
         Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
           {
             text: "Cancelar",
             onPress: () => null,
-            style: "cancel",
+            style: "cancel"
           },
-          { text: "Salir", onPress: () => BackHandler.exitApp() },
+          { text: "Salir", onPress: () => BackHandler.exitApp() }
         ]);
         return true;
-      } else {
+      }else{
         return false;
       }
-      usuario();
-        const backAction = () => {
-          if(navigation.isFocused()){
-            Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
-              {
-                text: "Cancelar",
-                onPress: () => null,
-                style: "cancel"
-              },
-              { text: "Salir", onPress: () => BackHandler.exitApp() }
-            ]);
-            return true;
-          }else{
-            return false;
-          }
-        };
-      
-      
-        const backHandler = BackHandler.addEventListener(
-          "hardwareBackPress",
-          backAction
-        );
+    };
+  
+  
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
     
-      
-        return () => backHandler.remove();
-      
+  
+    return () => backHandler.remove();
+  
         
       }, []);
 
@@ -109,6 +93,7 @@ export default function Home({ navigation }) {
             </View>
         );
     }
+  
 
     return(
         <SafeAreaView style={{
@@ -124,7 +109,6 @@ export default function Home({ navigation }) {
         backgroundColor: "white",
       }}
     >
-      <ScrollView>
         <View
           style={{
             flexDirection: "row",

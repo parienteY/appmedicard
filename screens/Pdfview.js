@@ -1,10 +1,7 @@
 import { Link } from "@react-navigation/native";
 import React, { useEffect } from "react";
 import { SafeAreaView, View, Text, StyleSheet, ScrollView } from "react-native";
-import { Button } from "react-native-paper";
-// import { ScrollView } from "react-native-web";
 import WebView from "react-native-webview";
-// import { WebView } from "react-native-webview";
 function Pdfview({ route, navigation }) {
   const { uri } = route.params;
   useEffect(() => {

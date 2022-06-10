@@ -1,37 +1,21 @@
-<<<<<<< HEAD
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AuthContext } from './utils/context';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './screens/Login';
 import { useMemo, useState } from 'react';
 import Home from './screens/Home';
 import Registro from './screens/Registro';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Profile from './screens/PerfilUser';
 import CitasMedicas from './screens/CitasMedicas';
 import Emergencias from './screens/Emergencias';
 import LaboratorioClinico from './screens/LaboratorioClinico';
 import Operaciones from './screens/Operaciones';
 import Perfil from './screens/Perfil';
 import Instituciones from './screens/Instituciones';
-=======
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AuthContext } from "./utils/context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import Login from "./screens/Login";
-import { useMemo, useState } from "react";
-import Home from "./screens/Home";
-import Registro from "./screens/Registro";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Profile from "./screens/PerfilUser";
 import Pdfview from "./screens/Pdfview";
->>>>>>> pdfview
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
