@@ -115,4 +115,4 @@ const estilos = StyleSheet.create({
         fontSize:15,
         color: "gray"
     }
-})
+})                                                                                      

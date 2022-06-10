@@ -15,6 +15,7 @@ import Emergencias from './screens/Emergencias';
 import LaboratorioClinico from './screens/LaboratorioClinico';
 import Operaciones from './screens/Operaciones';
 import Perfil from './screens/Perfil';
+import Instituciones from './screens/Instituciones';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -92,6 +93,7 @@ export default function App() {
                 <Stack.Screen name="Emergencias" component={Emergencias}></Stack.Screen>
                 <Stack.Screen name="LaboratorioClinico" component={LaboratorioClinico}></Stack.Screen>
                 <Stack.Screen name="Operaciones" component={Operaciones}></Stack.Screen>
+                <Stack.Screen name='Instituciones' component={Instituciones}></Stack.Screen>
               </Stack.Navigator>
             ):(
               <LoginStack.Navigator 
