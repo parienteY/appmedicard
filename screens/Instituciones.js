@@ -96,7 +96,12 @@ export default function Instituciones(props, {navigation}){
                 //   width:300,
                 height:50,
                 padding:5,
-                }}>
+                }}
+                onPress={() => {
+                    navigation.push("Pdf", {
+                      uri: "https://www.medicard.com.bo/archivos/precios.pdf",
+                    });
+                  }}>
                   VER PRECIOS CON MEDICARD
                 </Button>
             </View>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,11 +17,25 @@ import LaboratorioClinico from './screens/LaboratorioClinico';
 import Operaciones from './screens/Operaciones';
 import Perfil from './screens/Perfil';
 import Instituciones from './screens/Instituciones';
+=======
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { AuthContext } from "./utils/context";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Login from "./screens/Login";
+import { useMemo, useState } from "react";
+import Home from "./screens/Home";
+import Registro from "./screens/Registro";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Profile from "./screens/PerfilUser";
+import Pdfview from "./screens/Pdfview";
+>>>>>>> pdfview
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const LoginStack = createNativeStackNavigator();
-
 
 const TabNavigator = () => {
   return (
@@ -63,8 +78,8 @@ const TabNavigator = () => {
       }}></Tab.Screen>
       
     </Tab.Navigator>
-  )
-}
+  );
+};
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
   const authContext = useMemo(() => {
@@ -94,6 +109,10 @@ export default function App() {
                 <Stack.Screen name="LaboratorioClinico" component={LaboratorioClinico}></Stack.Screen>
                 <Stack.Screen name="Operaciones" component={Operaciones}></Stack.Screen>
                 <Stack.Screen name='Instituciones' component={Instituciones}></Stack.Screen>
+                <LoginStack.Screen
+              name="Pdf"
+              component={Pdfview}
+            ></LoginStack.Screen>
               </Stack.Navigator>
             ):(
               <LoginStack.Navigator 
@@ -115,8 +134,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

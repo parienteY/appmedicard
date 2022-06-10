@@ -2,8 +2,22 @@ import { useEffect, useState } from "react";
 import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert, TouchableHighlight,  } from "react-native";
 import {obtenerUsuario} from '../utils/helpers'
 import Carousel from 'react-native-snap-carousel';
+import {
+  BackHandler,
+  SafeAreaView,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  Alert,
+  Linking,
+} from "react-native";
+import { color } from "react-native-elements/dist/helpers";
+import { Button } from "react-native-paper";
+import { obtenerUsuario } from "../utils/helpers";
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [usuario, setUsuario] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -34,10 +48,25 @@ export default function Home({navigation}) {
     }
   ];
 
-    useEffect(() => {
-      const usuario = async() => {
-        const res = await obtenerUsuario();
-        setUsuario(res)
+  useEffect(() => {
+    const usuario = async () => {
+      const res = await obtenerUsuario();
+      setUsuario(res);
+    };
+    usuario();
+    const backAction = () => {
+      if (navigation.isFocused()) {
+        Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
+          {
+            text: "Cancelar",
+            onPress: () => null,
+            style: "cancel",
+          },
+          { text: "Salir", onPress: () => BackHandler.exitApp() },
+        ]);
+        return true;
+      } else {
+        return false;
       }
       usuario();
         const backAction = () => {
@@ -90,28 +119,47 @@ export default function Home({navigation}) {
           <ScrollView>
         <View
       style={{
-        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <ScrollView>
+        <View
+          style={{
+            flexDirection: "row",
 
-        marginStart: 5,
-        marginTop: 40,
-    
-      }}>
-      <View 
-      style={{ 
-        backgroundColor: "white"}} >
-          <Text style={{
-                    color:'black',
-                    fontSize: 17,
-                    marginTop: 20,
-                  }}>👋 Hola!</Text>
+            marginStart: 5,
+            marginTop: 40,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "white",
+            }}
+          >
+            <Text
+              style={{
+                color: "black",
+                fontSize: 17,
+                marginTop: 20,
+              }}
+            >
+              👋 Hola!
+            </Text>
 
-                  <Text style={{
-                    color:'black',
-                    fontWeight:'bold',
-                    fontSize: 20,
-                    marginTop: 1,
-                    marginStart: 25,
-                  }}>{usuario.nombres}</Text>
+            <Text
+              style={{
+                color: "black",
+                fontWeight: "bold",
+                fontSize: 20,
+                marginTop: 1,
+                marginStart: 25,
+              }}
+            >
+              {usuario.nombres}
+            </Text>
+          </View>
         </View>
         </View>
     
@@ -125,6 +173,17 @@ export default function Home({navigation}) {
                     marginStart: 30
                   }}>Servicios</Text>
 
+        <Text
+          style={{
+            color: "black",
+            fontWeight: "bold",
+            fontSize: 18,
+            marginBottom: -20,
+            marginTop: 20,
+          }}
+        >
+          Servicios
+        </Text>
 
     <View
       style={{
@@ -317,7 +376,7 @@ export default function Home({navigation}) {
               borderWidth: 1.5, }}
             ></Image> }
         </View>
-          </ScrollView>
-        </SafeAreaView>
-    )
-  }
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
