@@ -442,18 +442,40 @@ export default function Home(props,{ navigation }) {
 
     <View
       style={{
-        justifyContent:"center",
+        //justifyContent:"center",
         alignItems:'center',
         borderRadius: 20,
         borderColor:'#d7deea',
         borderWidth: 1.5,
-        height: 190,
+        height: 250,
         width: 370,
         marginBottom: 100,
         marginStart:10
       }}>
-         
-        { }
+         <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 0,
+                  }}>La tarjeta MEDICARD te ofrece:</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 0,
+                  }}>L✓ Hasta 70% de descuento en consultas médicas, laboratorios, diagnóstico por imagen y emergencia</Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 0,
+                  }}>✓ Hasta 30% de descuento en procedimientos quirúrgicos e internación. </Text>
+                  <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 0,
+                  }}>Conoce las áreas específicas acá: </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
