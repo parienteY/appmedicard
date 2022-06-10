@@ -1,246 +1,330 @@
 import { useEffect, useState } from "react";
-import { BackHandler, SafeAreaView, Text, View, StyleSheet, Image, ScrollView, Alert,  } from "react-native";
+import {
+  BackHandler,
+  SafeAreaView,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  Alert,
+  Linking,
+} from "react-native";
 import { color } from "react-native-elements/dist/helpers";
-import {obtenerUsuario} from '../utils/helpers'
+import { Button } from "react-native-paper";
+import { obtenerUsuario } from "../utils/helpers";
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [usuario, setUsuario] = useState({});
 
-    useEffect(() => {
-      const usuario = async() => {
-        const res = await obtenerUsuario();
-        setUsuario(res)
+  useEffect(() => {
+    const usuario = async () => {
+      const res = await obtenerUsuario();
+      setUsuario(res);
+    };
+    usuario();
+    const backAction = () => {
+      if (navigation.isFocused()) {
+        Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
+          {
+            text: "Cancelar",
+            onPress: () => null,
+            style: "cancel",
+          },
+          { text: "Salir", onPress: () => BackHandler.exitApp() },
+        ]);
+        return true;
+      } else {
+        return false;
       }
-      usuario();
-        const backAction = () => {
-          if(navigation.isFocused()){
-            Alert.alert("Salir", "¿Esta seguro que desea salir de la aplicación?", [
-              {
-                text: "Cancelar",
-                onPress: () => null,
-                style: "cancel"
-              },
-              { text: "Salir", onPress: () => BackHandler.exitApp() }
-            ]);
-            return true;
-          }else{
-            return false;
-          }
-        };
-      
-      
-        const backHandler = BackHandler.addEventListener(
-          "hardwareBackPress",
-          backAction
-        );
-    
-      
-        return () => backHandler.remove();
-      
-        
-      }, [])
-    return(
-        <SafeAreaView style={{
-          justifyContent:"center",
-          alignItems:'center',
-          backgroundColor: "white", 
-        }}>
-          <ScrollView>
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
+  return (
+    <SafeAreaView
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <ScrollView>
         <View
-      style={{
-        flexDirection: "row",
+          style={{
+            flexDirection: "row",
 
-        marginStart: 5,
-        marginTop: 40,
-    
-      }}>
-      <View 
-      style={{ 
-        backgroundColor: "white"}} >
-          <Text style={{
-                    color:'black',
-                    fontSize: 17,
-                    marginTop: 20,
-                  }}>👋 Hola!</Text>
+            marginStart: 5,
+            marginTop: 40,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "white",
+            }}
+          >
+            <Text
+              style={{
+                color: "black",
+                fontSize: 17,
+                marginTop: 20,
+              }}
+            >
+              👋 Hola!
+            </Text>
 
-                  <Text style={{
-                    color:'black',
-                    fontWeight:'bold',
-                    fontSize: 20,
-                    marginTop: 1,
-                    marginStart: 25,
-                  }}>{usuario.nombres}</Text>
+            <Text
+              style={{
+                color: "black",
+                fontWeight: "bold",
+                fontSize: 20,
+                marginTop: 1,
+                marginStart: 25,
+              }}
+            >
+              {usuario.nombres}
+            </Text>
+          </View>
         </View>
-        </View>
-    
 
-        <Text style={{
-                    color:'black',
-                    fontWeight:'bold',
-                    fontSize: 18,
-                    marginBottom: -20,
-                    marginTop: 20,
-                  }}>Servicios</Text>
+        <Text
+          style={{
+            color: "black",
+            fontWeight: "bold",
+            fontSize: 18,
+            marginBottom: -20,
+            marginTop: 20,
+          }}
+        >
+          Servicios
+        </Text>
 
-
-    <View
-      style={{
-        flexDirection: "row",
-        height: 250,
-        padding: 30,
-      }}>
-      <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, 
-        marginEnd: 30, }} >
-          <View style={{ 
-            justifyContent:"center",
-            alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
-            width: 135,
+        <View
+          style={{
+            flexDirection: "row",
+            height: 250,
             padding: 30,
-            flex: 0.5, }} >
-          
-          <Text style={{
-                    fontSize: 35,
-                  }}>🩺</Text>
+          }}
+        >
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 20,
+              borderColor: "#d7deea",
+              borderWidth: 1,
+              flex: 0.5,
+              marginEnd: 30,
+            }}
+          >
+            <Button
+              onPress={() => {
+                navigation.push("Pdf", {
+                  uri: "https://www.medicard.com.bo/archivos/precios.pdf",
+                });
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 35,
+                }}
+              >
+                🩺
+              </Text>
+            </Button>
+            {/* <Button
+                mode="contained"
+                onPress={() => {
+                  navigation.push("Pdf", {
+                    uri: "https://www.medicard.com.bo/assets/precios.pdf",
+                  });
+                  // Linking.openURL(
+                  //   "https://drive.google.com/file/d/19VBEX68ztW2bJpD0UA0NdlGb2VtsROau/view?usp=sharing"
+                  // );
+                }}
+              >
+                View pdf
+              </Button> */}
+            <Text
+              style={{
+                color: "#4A545E",
+                fontWeight: "bold",
+                fontSize: 15,
+                marginTop: 10,
+              }}
+            >
+              Citas Medicas
+            </Text>
+          </View>
 
-        </View>
-        <Text style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 10,
-                  }}>Citas Medicas</Text>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 20,
+              borderColor: "#d7deea",
+              borderWidth: 1,
+              flex: 0.5,
+            }}
+          >
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+                borderColor: "#becada",
+                borderWidth: 1,
+                //backgroundColor: "#43BAC1",
+                width: 135,
+                padding: 30,
+                flex: 0.5,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 35,
+                }}
+              >
+                🚨
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#4A545E",
+                fontWeight: "bold",
+                fontSize: 15,
+                marginTop: 10,
+              }}
+            >
+              Emergencias
+            </Text>
+          </View>
         </View>
 
-        <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, }} >
-          <View style={{ 
-            justifyContent:"center",
-            alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
-            width: 135,
+        <View
+          style={{
+            flexDirection: "row",
+            height: 250,
             padding: 30,
-            flex: 0.5, }} >
-          
-          <Text style={{
-                    fontSize: 35,
-                  }}>🚨</Text>
-        </View>
-        <Text style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 10,
-                  }}>Emergencias</Text>
-        </View>
-    </View>
+            marginTop: -30,
+          }}
+        >
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 20,
+              borderColor: "#d7deea",
+              borderWidth: 1,
+              flex: 0.5,
+              marginEnd: 30,
+            }}
+          >
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+                borderColor: "#becada",
+                borderWidth: 1,
+                //backgroundColor: "#43BAC1",
+                width: 135,
+                padding: 30,
+                flex: 0.5,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 35,
+                }}
+              >
+                💊
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#4A545E",
+                fontWeight: "bold",
+                fontSize: 15,
+                marginTop: 10,
+              }}
+            >
+              Laboratorio Clinico
+            </Text>
+          </View>
 
-    <View
-      style={{
-        flexDirection: "row",
-        height: 250,
-        padding: 30,
-        marginTop: -30,
-      }}>
-      <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, 
-        marginEnd: 30, }} >
-          <View style={{ 
-            justifyContent:"center",
-            alignItems:'center',
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 20,
+              borderColor: "#d7deea",
+              borderWidth: 1,
+              flex: 0.5,
+            }}
+          >
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+                borderColor: "#becada",
+                borderWidth: 1,
+                //backgroundColor: "#43BAC1",
+                width: 135,
+                padding: 30,
+                flex: 0.5,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 35,
+                }}
+              >
+                💉
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#4A545E",
+                fontWeight: "bold",
+                fontSize: 15,
+                marginTop: 10,
+              }}
+            >
+              Operaciones
+            </Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
             borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
-            width: 135,
-            padding: 30,
-            flex: 0.5, }} >
-              <Text style={{
-                    fontSize: 35,
-                  }}>💊</Text>
-          
-        </View>
-        <Text style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 10,
-                  }}>Laboratorio Clinico</Text>
-        </View>
-
-        <View style={{ 
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1,
-        flex: 0.5, }} >
-          <View style={{ 
-            justifyContent:"center",
-            alignItems:'center',
-            borderRadius: 20,
-            borderColor:'#becada',
-            borderWidth: 1,
-            //backgroundColor: "#43BAC1",
-            width: 135,
-            padding: 30,
-            flex: 0.5, }} >
-              <Text style={{
-                    fontSize: 35,
-                  }}>💉</Text>
-          
-        </View>
-        <Text style={{
-                    color:'#4A545E',
-                    fontWeight:'bold',
-                    fontSize: 15,
-                    marginTop: 10,
-                  }}>Operaciones</Text>
-        </View>
-    </View>
-
-    <View
-      style={{
-        justifyContent:"center",
-        alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        borderWidth: 1.5,
-        height: 190,
-        width: 370,
-        marginBottom: 100,
-      }}>
-        <Image source={require('../assets/img/1.jpg')}
-            style = {{ 
-              width: 367, 
+            borderColor: "#d7deea",
+            borderWidth: 1.5,
+            height: 190,
+            width: 370,
+            marginBottom: 100,
+          }}
+        >
+          <Image
+            source={require("../assets/img/1.jpg")}
+            style={{
+              width: 367,
               height: 187,
               borderRadius: 20,
-              borderWidth: 1.5, }}
-            ></Image>
+              borderWidth: 1.5,
+            }}
+          ></Image>
         </View>
-          </ScrollView>
-        </SafeAreaView>
-    )
-  }
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
