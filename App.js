@@ -11,6 +11,8 @@ import Emergencias from './screens/Emergencias';
 import LaboratorioClinico from './screens/LaboratorioClinico';
 import Operaciones from './screens/Operaciones';
 import Perfil from './screens/Perfil';
+import Contacto from './screens/Contacto';
+import Beneficio from './screens/Beneficio';
 import Instituciones from './screens/Instituciones';
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
@@ -25,9 +27,10 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
     screenOptions={{
-      tabBarActiveBackgroundColor:"#43BAC1",
-      tabBarActiveTintColor:"white",
-      tabBarInactiveBackgroundColor:"white",
+      tabBarActiveBackgroundColor:"white",
+      tabBarActiveTintColor:"#43BAC1",
+      tabBarInactiveTintColor:"white",
+      tabBarInactiveBackgroundColor:"#43BAC1",
       tabBarItemStyle:{
         borderWidth:0,
         shadowOffset: {
@@ -37,27 +40,39 @@ const TabNavigator = () => {
     },
       headerShown:false,
     }}>
+      
+      <Tab.Screen name="Contacto" component={Contacto} options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="information" color={color} size={40} />
+        ),
+        tabBarLabelStyle: {
+          'fontSize': 15,
+        },
+        tabBarStyle:{
+          height:60,
+        }
+      }}></Tab.Screen>
       <Tab.Screen name="Home" component={Home} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={40} />
+          <MaterialCommunityIcons name="home-circle" color={color} size={40} />
         ),
           tabBarLabelStyle: {
             'fontSize': 15,
 
           },
           tabBarStyle:{
-            height:55,
+            height:60,
           }
           }}></Tab.Screen>
       <Tab.Screen name="Perfil" component={Perfil} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="account" color={color} size={40} />
+          <MaterialCommunityIcons name="account-circle" color={color} size={40} />
         ),
         tabBarLabelStyle: {
           'fontSize': 15,
         },
         tabBarStyle:{
-          height:55,
+          height:60,
         }
       }}></Tab.Screen>
       
@@ -81,14 +96,16 @@ export default function App() {
         <NavigationContainer
         >
           {
-            isLogin? (
+            !isLogin? (
               <Stack.Navigator 
               screenOptions={{
                 headerShown: false,
                 
               }}>
                 <Stack.Screen name='App' component={TabNavigator}></Stack.Screen>
+                <Stack.Screen name='Beneficio' component={Beneficio}></Stack.Screen>
                 <Stack.Screen name="Citas" component={CitasMedicas}></Stack.Screen>
+                <Stack.Screen name="Contacto" component={Contacto}></Stack.Screen>
                 <Stack.Screen name="Emergencias" component={Emergencias}></Stack.Screen>
                 <Stack.Screen name="LaboratorioClinico" component={LaboratorioClinico}></Stack.Screen>
                 <Stack.Screen name="Operaciones" component={Operaciones}></Stack.Screen>
