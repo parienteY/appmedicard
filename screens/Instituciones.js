@@ -75,6 +75,15 @@ export default function Instituciones( {route,navigation}){
             archivo:"https://www.medicard.com.bo/archivos/lirios.pdf",
             longitud:'-17.388090195308123',
             latitud:'-66.14495187243007',
+        },
+        {
+            id:6,
+            nombre: "C.A.O. Servicio de Atención Oftalmológica",
+            direccion: "Calle Colombia N°810 esq. 16 de Julio Edificio Guadalupe 2° Piso Cons. 3",
+            contacto: "+591 (4)4661452 - +591 70758337",
+            pagina: "meguerragueo@gmail.com",
+            imagen:require("../assets/img/CAO.jpg"),
+            archivo:"https://www.medicard.com.bo/archivos/CAO.pdf",
         }
     ];
 

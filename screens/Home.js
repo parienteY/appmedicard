@@ -16,7 +16,7 @@ import {
 import { color } from "react-native-elements/dist/helpers";
 import { Button } from "react-native-paper";
 
-export default function Home(props,{ navigation }) {
+export default function Home( {navigation }) {
   const [usuario, setUsuario] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -184,7 +184,7 @@ export default function Home(props,{ navigation }) {
             borderWidth: 1.5,
             flex: 0.5, 
             marginEnd: 30, 
-      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 6 })
+      }} onPress={() => {navigation.navigate("Instituciones", { id: 6 })
       }}>
         
       <View 
@@ -229,7 +229,7 @@ export default function Home(props,{ navigation }) {
             backgroundColor: '#ffffff',
             borderWidth: 1.5,
             flex: 0.5, 
-      }}  onPress={() => {props.navigation.navigate("Instituciones", { id: 4 })
+      }}  onPress={() => {navigation.navigate("Instituciones", { id: 4 })
       }}>
         <View>
           <View style={{ 
@@ -280,7 +280,7 @@ export default function Home(props,{ navigation }) {
             borderWidth: 1.5,
             marginEnd: 30, 
             flex: 0.5, 
-      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 1 })
+      }} onPress={() => {navigation.navigate("Instituciones", { id: 1 })
     }}>
         <View>
           <View style={{ 
@@ -313,7 +313,7 @@ export default function Home(props,{ navigation }) {
 
         <TouchableHighlight 
         underlayColor="#dc3545"
-        onPress={() => {props.navigation.navigate("Instituciones", { id: 5 })
+        onPress={() => {navigation.navigate("Instituciones", { id: 5 })
       }} style={{ 
         justifyContent:"center",
         alignItems:'center',
@@ -369,7 +369,7 @@ export default function Home(props,{ navigation }) {
             borderWidth: 1.5,
             marginEnd: 30, 
             flex: 0.5, 
-      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 3 })
+      }} onPress={() => {navigation.navigate("Instituciones", { id: 3 })
     }}>
         <View>
           <View style={{ 
@@ -402,7 +402,7 @@ export default function Home(props,{ navigation }) {
 
         <TouchableHighlight 
         underlayColor="#dc3545"
-        onPress={() => {props.navigation.navigate("Instituciones", { id: 2 })
+        onPress={() => {navigation.navigate("Instituciones", { id: 2 })
       }} style={{ 
         justifyContent:"center",
         alignItems:'center',
@@ -438,6 +438,56 @@ export default function Home(props,{ navigation }) {
                   }}>Red de enfermeria</Text>
                   </View>
                   </TouchableHighlight>
+    </View>
+    <View
+      style={{
+        flexDirection: "row",
+        height: 250,
+        padding: 30,
+        marginTop: -30,
+      }}>
+          
+          <TouchableHighlight
+      underlayColor="#dc3545"
+      style={{
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 20,
+            borderColor:'#dddfe2',
+            backgroundColor: '#ffffff',
+            borderWidth: 1.5,
+            marginEnd: 30, 
+            flex: 0.5, 
+      }} onPress={() => {navigation.navigate("Instituciones", { id: 6 })
+    }}>
+        <View>
+          <View style={{ 
+            justifyContent:"center",
+            alignItems:'center',
+            borderRadius: 100,
+            //backgroundColor: "#f1f4f7",
+            width: 110,
+            padding: 30,
+            flex: 0.8, }} >
+          
+          <Image source={require('../assets/img/CAO.jpg')}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 20,
+                borderWidth: 1.5,
+              }}
+            ></Image>
+        </View>
+        <Text style={{
+                    color:'#57636c',
+                    fontWeight:'bold',
+                    fontSize: 15,
+                    marginTop: 15,
+                  }}>C.A.O</Text>
+                  </View>
+
+        </TouchableHighlight>
     </View>
 
     <View

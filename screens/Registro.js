@@ -5,10 +5,12 @@ import { TextInput, Colors } from 'react-native-paper';
 import { AXIOS } from "../connection/conecction";
 import RNPickerSelect from "react-native-picker-select";
 import { Checkbox } from 'react-native-paper';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import * as global from '../utils/context';
 
 
-export default function Registro(){
+export default function Registro({navigation}){
+  const { signIn } = useContext(global.AuthContext);
   const condiciones = `
   CONTRATO DE COBERTURA DE LA TARJETA DE DESCUENTO MEDICARD
   CONDICIONES GENERALES
@@ -69,10 +71,16 @@ export default function Registro(){
         });
 
         if(res.data.status){
-          Alert.alert("Registro exitoso")
+          Alert.alert("Registro exitoso",res.data.msg,[
+            {
+              text: "Aceptar",
+              onPress: () => {signIn()}
+            }
+          ])
         }
         
       } catch (error) {
+        console.log(error.errors)
         Alert.alert("Revise sus datos e inténtelo nuevamente")
       }
     }

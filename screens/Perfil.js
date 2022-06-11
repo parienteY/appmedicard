@@ -84,7 +84,22 @@ export default function Perfil(){
                 <View style={estilos.datos}>
                 <Text style={estilos.titulo}>Código</Text>
                 <Text style={estilos.contenido}>{usuario.codigo}</Text>
-                <Text>{diferencia}</Text>
+                </View>
+                <View style={{
+                    padding: 20,
+                    justifyContent: "center",
+                    alignItems:"center",
+                    borderColor:"#43BAC1",
+                    borderRadius: 20,
+                    borderWidth: 1,
+                    marginTop: 10
+                }}>
+                <Text style={{
+                    fontSize: 20,
+                    color:"#E62D28",
+                    letterSpacing: 1
+                }}>Días restantes: {diferencia}</Text>
+
                 </View>
                 </View>
                 <Button mode="contained" disabled={false} onPress={() =>
@@ -94,7 +109,7 @@ export default function Perfil(){
                   alignItems:'center',
                 //   height:38,
                 //   width:300,
-                  top:100,
+                  top:0,
                   flex:0,
                   borderRadius:10
                 }}>
