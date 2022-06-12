@@ -5,12 +5,34 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../utils/context";
 import {obtenerUsuario} from '../utils/helpers'
 import moment from "moment";
+import { AXIOS } from "../connection/conecction";
 
 export default function Perfil(){
     const {signOut} = useContext(AuthContext);
     const [usuario, setUsuario] = useState({});
     const [diferencia, setDiferencia] = useState(0);
 
+    const cambiarEstado = async (email) => {
+        const body = {
+            email
+        }
+        console.log(body)
+        const res = await AXIOS.then(res => {
+            return res.post("usuarios/cambiar/estado", body)
+        })
+        if(res.data.status === true){
+            Alert.alert(  
+                'Tarjeta vencida',  
+                'Renueve su tarjeta medicard yendo a los puntos de venta autorizados',  
+                [    
+                    {text: 'Aceptar', onPress: () => {
+                        signOut()
+                    }},  
+                ]  
+            );  
+        }
+        
+    }
    
     useEffect(() => {
         const usuario = async() => {
@@ -20,9 +42,16 @@ export default function Perfil(){
             const fechaM = moment(res.fecha_activacion);
             const fechaF = fechaM.add(1,"year");
             console.log(fechaF, fechaA)
-            setDiferencia(fechaF.diff(fechaA, 'days')+1)
+            //setDiferencia(fechaF.diff(fechaA, 'days')+1)
+            let diff = fechaF.diff(fechaA, 'days')+1;
+            setDiferencia(diff)
+            if(diff === 0){
+                cambiarEstado(res.email);
+            }
         }
         usuario();
+
+
     },[]);
     const cerrar = async () => {
         await AsyncStorage.clear().then(res => {
@@ -94,11 +123,19 @@ export default function Perfil(){
                     borderWidth: 1,
                     marginTop: 10
                 }}>
-                <Text style={{
-                    fontSize: 20,
-                    color:"#E62D28",
-                    letterSpacing: 1
-                }}>Días restantes: {diferencia}</Text>
+                {
+                    diferencia === 0? (
+                        <Text style={{
+                            fontSize: 20,
+                            color:"#E62D28",
+                            letterSpacing: 1
+                        }}>Su tarjeta ha vencido</Text>
+                    ): (<Text style={{
+                        fontSize: 20,
+                        color:"#E62D28",
+                        letterSpacing: 1
+                    }}>Días restantes: {diferencia}</Text>)
+                }
 
                 </View>
                 </View>

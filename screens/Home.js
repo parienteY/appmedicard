@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {obtenerUsuario} from '../utils/helpers'
-import Carousel from 'react-native-snap-carousel';
 import {
   BackHandler,
   SafeAreaView,
@@ -19,6 +18,55 @@ import { Button } from "react-native-paper";
 export default function Home( {navigation }) {
   const [usuario, setUsuario] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
+  const beneficio = `
+Hasta 70% de descuento en la atención de consulta médica privada y con tratamiento ambulatorio en todas las especialidades médicas clínicas.
+    -Cardiología
+    -Medicina Familiar
+    -Dermatología
+    -Medicina Interna
+    -Endocrinología
+    -Neumología
+    -Gastroenterología
+    -Pediatría
+    -Geriatría
+    -Reumatología
+    -Hematología
+    -Oftalmología
+    -Ginecología
+    -Odontología
+    -Nefrología 
+  
+Hasta 30% de descuento en la internación hospitalaria médica y que necesiten cirugías:
+    -Neurocirugía
+    -Cirugía Cardiovascular
+    -Neuropediatría
+    -Cirugía General
+    -Oftalmología
+    -Ginecología
+    -Cirugía Pediátrica
+    -Otorrinolaringología
+    -Cirugía Plástica
+    -Traumatología
+    -Cirugía Torácica
+    -Urología 
+
+Hasta 70 % de descuento en las emergencias médicas que sean atendidas por nuestro personal de Ambulancia, Enfermería y Medicina General las 24 horas del día, los 365 días del año:
+
+    -Curaciones
+    -Inyectables
+    -Sueros
+    -Transporte de Ambulancia
+    -Médico General 
+
+Hasta 70 % de descuento en las siguientes pruebas y/o exámenes:
+
+    -Laboratorios
+    -Radiografías
+    -Ecografías
+    -Endoscopías
+    -Audiometrías
+    -Electrocardiogramas
+  `;
 
   const carouselItems = [
     {
@@ -98,79 +146,68 @@ export default function Home( {navigation }) {
     return(
         <SafeAreaView style={{
           justifyContent:"center",
-          alignItems:'center',
-          backgroundColor: "#f2f4f8", 
+          backgroundColor: '#eeeff0', 
+          padding: -5,
         }}>
           <ScrollView>
         <View
       style={{
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-        <View
-          style={{
-            flexDirection: "row",
-
-        marginStart: 5,
-        marginTop: 40,
-    
+        //justifyContent: "center",
+        //alignItems: "center",
       }}>
-      <View 
-      style={{ 
-        backgroundColor: "#f2f4f8"}} >
-          <Text style={{
-                    color:'#2c2f33',
-                    fontWeight:'bold',
-                    fontSize: 30,
-                    marginTop: 20,
-                  }}>👋 Hola!</Text>
-                  
-                  <Image source={require('../assets/img/MEDICARD.png')}
-                          style = {{ 
-                          width: 85, 
-                          height: 85,
-                          marginStart: 300,
-                          marginTop: -50,}}>
-                          </Image>
+          <View
+          style={{
+            padding: 60,
+            paddingBottom: -50,
+        backgroundColor:'#43bac1'
+      }}>
+    <View
+        style={{
+        flexDirection: "column",
+        marginStart: -60,
+        marginTop: 10,
+        marginBottom: 10,
 
+        }}>
+          <Text style={{
+                color:'white',
+                fontWeight:'bold',
+                fontSize: 30,
+                marginTop: 0,}}>
+                  👋🏻 Hola!
+                  </Text>
                   <Text style={{
-                    color:'#101213',
+                    color:'white',
                     fontWeight:'bold',
                     fontSize: 20,
-                    marginTop: 1,
+                    marginTop: -5,
                     marginStart: 40,
-                    marginTop: -30,
                   }}>{usuario.nombres}</Text>
         </View>
         </View>
     </View>
-
+    <View
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
         <Text style={{
-                    color:'#57636c',
+                    color:'#6a6f71',
                     fontWeight:'bold',
                     fontSize: 30,
-                    marginBottom: -20,
+                    marginBottom: 10,
                     marginTop: 20,
-                    marginStart: 30
-                  }}>Servicios</Text>
-
-        <Text
-          style={{
-            color: "black",
-            fontWeight: "bold",
-            fontSize: 18,
-            marginBottom: -20,
-            marginTop: 20,
-          }}
-        >
-        </Text>
-
+                  }}>CLINICAS</Text>
+        </View>
+        <View
+        style={{
+          //padding: -55,
+        }}>
     <View
       style={{
         flexDirection: "row",
         height: 250,
-        padding: 30,
+        padding: 5,
       }}>
         
       <TouchableHighlight
@@ -178,13 +215,13 @@ export default function Home( {navigation }) {
       style={{
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
+            //borderRadius: 20,
             borderColor:'#dddfe2',
             backgroundColor: '#ffffff',
-            borderWidth: 1.5,
+            //borderWidth: 1.5,
             flex: 0.5, 
-            marginEnd: 30, 
-      }} onPress={() => {navigation.navigate("Instituciones", { id: 6 })
+            marginEnd: 10, 
+      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 6 })
       }}>
         
       <View 
@@ -211,7 +248,7 @@ export default function Home( {navigation }) {
         </View>
         <Text
         style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
@@ -224,10 +261,10 @@ export default function Home( {navigation }) {
       style={{
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
+            //borderRadius: 20,
             borderColor:'#dddfe2',
             backgroundColor: '#ffffff',
-            borderWidth: 1.5,
+            //borderWidth: 1.5,
             flex: 0.5, 
       }}  onPress={() => {navigation.navigate("Instituciones", { id: 4 })
       }}>
@@ -251,7 +288,7 @@ export default function Home( {navigation }) {
             ></Image>
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
@@ -265,8 +302,7 @@ export default function Home( {navigation }) {
       style={{
         flexDirection: "row",
         height: 250,
-        padding: 30,
-        marginTop: -30,
+        padding: 5,
       }}>
           
           <TouchableHighlight
@@ -274,11 +310,11 @@ export default function Home( {navigation }) {
       style={{
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
+            //borderRadius: 20,
             borderColor:'#dddfe2',
             backgroundColor: '#ffffff',
-            borderWidth: 1.5,
-            marginEnd: 30, 
+            //borderWidth: 1.5,
+            marginEnd: 10, 
             flex: 0.5, 
       }} onPress={() => {navigation.navigate("Instituciones", { id: 1 })
     }}>
@@ -302,7 +338,7 @@ export default function Home( {navigation }) {
             ></Image>
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
@@ -317,13 +353,13 @@ export default function Home( {navigation }) {
       }} style={{ 
         justifyContent:"center",
         alignItems:'center',
-        borderRadius: 20,
+        //borderRadius: 20,
         borderColor:'#dddfe2',
         backgroundColor: '#ffffff',
-        borderWidth: 1.5,
+        //borderWidth: 1.5,
         flex: 0.5, }} >
           <View>
-          <View   style={{ 
+          <View style={{ 
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
@@ -331,7 +367,8 @@ export default function Home( {navigation }) {
             width: 110,
             padding: 30,
             flex: 0.8, }} >
-              <Image source={require('../assets/img/Marbella.jpg')}
+          
+          <Image source={require('../assets/img/Marbella.jpg')}
               style={{
                 width: 100,
                 height: 100,
@@ -339,13 +376,12 @@ export default function Home( {navigation }) {
                 borderWidth: 1.5,
               }}
             ></Image>
-          
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 10,
+                    marginTop: 15,
                   }}>Marbella</Text>
                   </View>
                   </TouchableHighlight>
@@ -354,8 +390,7 @@ export default function Home( {navigation }) {
       style={{
         flexDirection: "row",
         height: 250,
-        padding: 30,
-        marginTop: -30,
+        padding: 5,
       }}>
           
           <TouchableHighlight
@@ -363,11 +398,11 @@ export default function Home( {navigation }) {
       style={{
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
+            //borderRadius: 20,
             borderColor:'#dddfe2',
             backgroundColor: '#ffffff',
-            borderWidth: 1.5,
-            marginEnd: 30, 
+            //borderWidth: 1.5,
+            marginEnd: 10, 
             flex: 0.5, 
       }} onPress={() => {navigation.navigate("Instituciones", { id: 3 })
     }}>
@@ -391,7 +426,7 @@ export default function Home( {navigation }) {
             ></Image>
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
@@ -406,10 +441,10 @@ export default function Home( {navigation }) {
       }} style={{ 
         justifyContent:"center",
         alignItems:'center',
-        borderRadius: 20,
+        //borderRadius: 20,
         borderColor:'#dddfe2',
         backgroundColor: '#ffffff',
-        borderWidth: 1.5,
+        //borderWidth: 1.5,
         flex: 0.5, }} >
           <View>
           <View   style={{ 
@@ -431,7 +466,7 @@ export default function Home( {navigation }) {
           
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 10,
@@ -443,25 +478,24 @@ export default function Home( {navigation }) {
       style={{
         flexDirection: "row",
         height: 250,
-        padding: 30,
-        marginTop: -30,
+        padding: 5,
       }}>
           
-          <TouchableHighlight
-      underlayColor="#dc3545"
+          <TouchableHighlight 
+        underlayColor="#dc3545"
+        onPress={() => {navigation.navigate("Instituciones", { id: 6 })
+      }}
       style={{
             justifyContent:"center",
             alignItems:'center',
-            borderRadius: 20,
+            //borderRadius: 20,
             borderColor:'#dddfe2',
             backgroundColor: '#ffffff',
-            borderWidth: 1.5,
-            marginEnd: 30, 
-            flex: 0.5, 
-      }} onPress={() => {navigation.navigate("Instituciones", { id: 6 })
-    }}>
-        <View>
-          <View style={{ 
+            //borderWidth: 1.5,
+            marginEnd: 10, 
+            flex: 0.5,}}  >
+          <View>
+          <View   style={{ 
             justifyContent:"center",
             alignItems:'center',
             borderRadius: 100,
@@ -469,8 +503,7 @@ export default function Home( {navigation }) {
             width: 110,
             padding: 30,
             flex: 0.8, }} >
-          
-          <Image source={require('../assets/img/CAO.jpg')}
+              <Image source={require('../assets/img/CAO.jpg')}
               style={{
                 width: 100,
                 height: 100,
@@ -478,83 +511,74 @@ export default function Home( {navigation }) {
                 borderWidth: 1.5,
               }}
             ></Image>
+          
         </View>
         <Text style={{
-                    color:'#57636c',
+                    color:'#9b9b9b',
                     fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 15,
-                  }}>C.A.O</Text>
+                    marginTop: 10,
+                  }}>C.A.O - Unico</Text>
                   </View>
-
-        </TouchableHighlight>
+                  </TouchableHighlight>
     </View>
+    </View>
+    <View style={{
+        //justifyContent:"center",
+        //alignItems:'center',
+        margin: 5,
 
+      }}>
     <View
       style={{
         //justifyContent:"center",
         alignItems:'center',
-        borderRadius: 20,
-        borderColor:'#d7deea',
-        //backgroundColor:'rgba(67,186,193,100)',
+        borderRadius: 10,
         backgroundColor: 'white',
-        borderWidth: 1.5,
-        height: 250,
-        width: 370,
-        marginBottom: 100,
-        marginStart:10
+        borderWidth: 4,
+        borderColor:'#d7deea',
       }}>
          <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 25,
-                    marginTop: 10,
                   }}>La tarjeta MEDICARD</Text>
                   <Text style={{
                     color:'#57636c',
                     fontWeight:'bold',
                     fontSize: 25,
-                    marginTop: 0,
                   }}>te ofrece:</Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 15,
-                    
+                    marginTop: 20,
                   }}>✓ Hasta 70% de descuento en</Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 0,
                   }}>consultas médicas, laboratorios, </Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 0,
                   }}>diagnóstico por imagen y emergencia</Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 15,
                   }}>✓ Hasta 30% de descuento en</Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 0,
                   }}>procedimientos quirúrgicos e internación.</Text>
                   <Text style={{
                     color:'#57636c',
-                    fontWeight:'bold',
                     fontSize: 15,
-                    marginTop: 30,
+                    fontWeight:'bold',
+                    marginTop: 20,
                   }}>Conoce las áreas específicas acá: </Text>
-                  <View>
+                  
                   <TouchableHighlight 
+                  //</View>onPress={() => {props.navigation.navigate("Beneficio", { id: 2 })}}
+                  onPress={() => Alert.alert("BENEFICIOS",beneficio)}
                   underlayColor="#43BAC1"
                   style={{ 
                   justifyContent:"center",
@@ -562,18 +586,22 @@ export default function Home( {navigation }) {
                   borderRadius: 20,
                   borderColor:'#dddfe2',
                   backgroundColor: '#dc3545',
-                  marginTop: 25,
+                  marginTop: 5,
+                  marginBottom: 5,
                   width: 100,
-                  height: 80,
+                  height: 40,
                   borderWidth: 1.5,
                   flex: 0.5, }}>
                     <Text style={{
                     color:'white',
-                    fontWeight:'bold',
+                    //fontWeight:'bold',
                     fontSize: 15,
                   }}>VER MAS</Text>
                   </TouchableHighlight>
+                  <View>
+
                   </View>
+        </View>
         </View>
       </ScrollView>
     </SafeAreaView>
