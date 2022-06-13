@@ -221,7 +221,7 @@ Hasta 70 % de descuento en las siguientes pruebas y/o exámenes:
             //borderWidth: 1.5,
             flex: 0.5, 
             marginEnd: 10, 
-      }} onPress={() => {props.navigation.navigate("Instituciones", { id: 6 })
+      }} onPress={() => {navigation.navigate("Instituciones", { id: 6 })
       }}>
         
       <View 
@@ -252,7 +252,7 @@ Hasta 70 % de descuento en las siguientes pruebas y/o exámenes:
                     fontWeight:'bold',
                     fontSize: 15,
                     marginTop: 15,
-                  }}>Los Lirioss</Text>
+                  }}>Los Lirios</Text>
         </View>
       </TouchableHighlight>
 

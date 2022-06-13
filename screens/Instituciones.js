@@ -1,9 +1,21 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, View, Text, Image, StyleSheet } from "react-native";
+import { SafeAreaView, View, Text, Image, StyleSheet, Linking } from "react-native";
 import { Button } from 'react-native-paper';
 
 export default function Instituciones( {route,navigation}){
     const [actual, setActual] = useState({});
+
+    const openGps = (lat, lng) => {
+        var scheme = Platform.OS === 'ios' ? 'maps:' : 'geo:';
+        var url = scheme + `${lat},${lng}`;
+        // Linking.openURL(url);
+        Linking.openURL(
+          Platform.OS === 'ios'
+            ? 'googleMaps://app?saddr=6.931970+79.857750&daddr=6.909877+79.848521'
+            : `google.navigation:q=${lat}+${lng}`
+        )
+      }
+
     useEffect(() => {
         buscarPorId();
     }, [])
@@ -51,8 +63,8 @@ export default function Instituciones( {route,navigation}){
             pagina: "vivianmonicachavezsubieta@hotmail.com",
             imagen:require("../assets/img/Coldent.jpeg"),
             archivo:"https://www.medicard.com.bo/archivos/cold.pdf",
-            longitud:'-17.369670582137132',
-            latitud:'-66.16040221771019',
+            longitud:'-17.3696179852243185',
+            latitud:'-66.16032667183222',
         },
         {
             id: 5,
@@ -117,9 +129,28 @@ export default function Instituciones( {route,navigation}){
                <Text style={estilos.txt}>{actual.pagina}</Text> 
                 </View>
                 </View>
-                <Button mode="contained" disabled={false} style={{
+                <View style={{
+                    flexDirection:"row",
+                }}>
+                      <Button mode="contained" disabled={false} style={{
+                  backgroundColor:"#43BAC1",
+                //   height:38,
+                //   width:300,
+                height:50,
+                width:150,
+                marginStart:5,
+                padding:5,
+                }}
+                onPress={() => {
+                    openGps(actual.longitud, actual.latitud)
+                  }}>
+ <Text style={{fontSize:11}}>
+                  VER UBICACIÓN
+                    </Text></Button>
+                    <Button mode="contained" disabled={false} style={{
                   backgroundColor:"#E62D28",
                 //   height:38,
+                marginStart: 5,
                 //   width:300,
                 height:50,
                 padding:5,
@@ -129,8 +160,11 @@ export default function Instituciones( {route,navigation}){
                       uri: actual.archivo,
                     });
                   }}>
+                    <Text style={{fontSize:11}}>
                   VER PRECIOS CON MEDICARD
+                    </Text>
                 </Button>
+                </View>
             </View>
         </SafeAreaView>
     )
