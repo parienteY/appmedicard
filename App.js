@@ -35,19 +35,7 @@ const TabNavigator = () => {
     },
       headerShown:false,
     }}>
-      
-      <Tab.Screen name="Contacto" component={Contacto} options={{
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="information" color={color} size={40} />
-        ),
-        tabBarLabelStyle: {
-          'fontSize': 15,
-        },
-        tabBarStyle:{
-          height:60,
-        }
-      }}></Tab.Screen>
-      <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Home" component={Home} options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="home-circle" color={color} size={40} />
         ),
@@ -59,6 +47,18 @@ const TabNavigator = () => {
             height:60,
           }
           }}></Tab.Screen>
+      <Tab.Screen name="Contacto" component={Contacto} options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="information" color={color} size={40} />
+        ),
+        tabBarLabelStyle: {
+          'fontSize': 15,
+        },
+        tabBarStyle:{
+          height:60,
+        }
+      }}></Tab.Screen>
+
       <Tab.Screen name="Perfil" component={Perfil} options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="account-circle" color={color} size={40} />
@@ -113,7 +113,6 @@ export default function App() {
               }}>
                 <LoginStack.Screen name='Login' component={Login}></LoginStack.Screen>
                 <LoginStack.Screen name='Registro' component={Registro}></LoginStack.Screen>
-                <LoginStack.Screen name='CitasMedicas' component={CitasMedicas}></LoginStack.Screen>
               </LoginStack.Navigator>
             )
           }

@@ -34,7 +34,6 @@ const loginNormal = async (correo, ci) => {
       return res.post("auth/login", body)
     })
     if(res.data.status){
-      console.log(res.data.usuario)
       setCargando(false)
       guardarToken(res.data.token, 'token');
       guardarToken(JSON.stringify(res.data.usuario), 'usuario')

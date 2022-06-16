@@ -7,6 +7,7 @@ import RNPickerSelect from "react-native-picker-select";
 import { Checkbox } from 'react-native-paper';
 import { useState, useContext } from "react";
 import * as global from '../utils/context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function Registro({navigation}){
@@ -61,28 +62,45 @@ export default function Registro({navigation}){
   El conocimiento de las acciones judiciales emergentes del presente contrato, es de competencia y jurisdicción del juez del domicilio del BENEFICIARIO.`;
   const [checked, setChecked] = useState(true);
   const [sexo, setSexo] = useState(true);
-    const registrar = async (nombres, apellidos, telefono, ci, dia, mes, año, codigo, sexo, email, password, ciudad) => {
-      const body = {
-        nombres, apellidos, telefono, ci, fecha_nacimiento: dia+"/"+mes+"/"+año ,codigo, sexo, email, password, ciudad: "cochabamba", rol:"USER_ROLE", condiciones: true, ciudad
-      }
-      try {
-        const res = await AXIOS.then(res => {
-          return res.post("usuarios", body)
-        });
 
-        if(res.data.status){
-          Alert.alert("Registro exitoso",res.data.msg,[
-            {
-              text: "Aceptar",
-              onPress: () => {signIn()}
-            }
-          ])
+  const guardarToken = async (usuario, nombre) => {
+    try {
+      await AsyncStorage.setItem(nombre, usuario );
+      return true;
+    } catch (e) {
+      // saving error
+      return false;
+    }
+  }
+
+    const registrar = async (nombres, apellidos, telefono, ci, dia, mes, año, codigo, sexo, email, password, ciudad) => {
+      
+        const body2 = {
+          nombres, apellidos, telefono, ci, fecha_nacimiento: dia+"/"+mes+"/"+año ,codigo, sexo, email, password, ciudad: "cochabamba", rol:"USER_ROLE", condiciones: true, ciudad
         }
-        
-      } catch (error) {
-        console.log(error.errors)
-        Alert.alert("Revise sus datos e inténtelo nuevamente")
-      }
+        await fetch("https://medicard.com.bo/api/usuarios",{
+          method:"POST",
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body2)
+        }).then((response) => response.json())
+        .then((res) => {
+          if(res.status){
+            Alert.alert("Registro exitoso",res.msg,[
+                    {
+                      text: "Aceptar",
+                      onPress: () => {
+                        guardarToken(res.token, 'token');
+                        guardarToken(JSON.stringify(res.usuario), 'usuario')
+                        signIn()
+                      }
+                    }
+                  ])
+          }else{
+            Alert.alert("Error", res.errors[0].msg)
+          }
+        })
     }
     const registerValidationSchema = yup.object().shape({
         nombres: yup
@@ -95,13 +113,13 @@ export default function Registro({navigation}){
         .string("Ingrese sus apellidos")
         .required("Los apellidos son obligatorios"),
         telefono: yup
-        .string("Ingrese su telefono")
+        .number("Ingrese su telefono")
         .required("El telefono es obligatorio"),
         ciudad: yup
         .string("Ingrese su ciudad")
         .required("La ciudad es obligatoria"),
         ci: yup
-        .string("Ingrese su ci")
+        .number("Ingrese su ci")
         .required("El ci es obligatorio"),
         dia: yup
         .number("Ingrese el dia")
@@ -180,7 +198,7 @@ export default function Registro({navigation}){
                   label='Apellidos'
                   onBlur={handleBlur('apellidos')}
                   value={values.apellidos}
-                  keyboardType="email-address"
+                  keyboardType="default"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -198,7 +216,7 @@ export default function Registro({navigation}){
                   label='Celular/Telefono'
                   onBlur={handleBlur('telefono')}
                   value={values.telefono}
-                  keyboardType="email-address"
+                  keyboardType="numeric"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -217,7 +235,7 @@ export default function Registro({navigation}){
                   onBlur={handleBlur('ci')}
                   value={values.ci}
                   style={styles.email}
-                  keyboardType="email-address"
+                  keyboardType="numeric"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -247,9 +265,6 @@ export default function Registro({navigation}){
                  ]}
              />
          </View>
-
-                 
-
                 <View style={{justifyContent: "center", alignItems:"center", marginTop: 10}}>
                 <Text>Ingrese su fecha de nacimiento</Text>
                 <View style={{ flexDirection:"row"}}>
@@ -261,7 +276,7 @@ export default function Registro({navigation}){
                   label='Día'
                   onBlur={handleBlur('dia')}
                   value={values.dia}
-                  keyboardType="default"
+                  keyboardType="numeric"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -279,7 +294,7 @@ export default function Registro({navigation}){
                   label='Mes'
                   onBlur={handleBlur('mes')}
                   value={values.mes}
-                  keyboardType="default"
+                  keyboardType="numeric"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -297,7 +312,7 @@ export default function Registro({navigation}){
                   label='Año'
                   onBlur={handleBlur('año')}
                   value={values.año}
-                  keyboardType="default"
+                  keyboardType="numeric"
                   outlineColor="#43BAC1"
                   theme={{
                     colors: {
@@ -356,6 +371,7 @@ export default function Registro({navigation}){
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
                   value={values.password}
+                  textContentType="password"
                   secureTextEntry={true}
                   keyboardType="default"
                   outlineColor="#43BAC1"

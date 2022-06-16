@@ -10,24 +10,22 @@ const  Contacto= () => {
       style={{
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor:"#E62D28",
       }}
     >
         <View
           style={{
-            flexDirection: "row",
-
-        marginStart: 5,
+        flexDirection: "row",
+        marginStart: -75,
         marginTop: 40,
-    
       }}>
-      <View 
-      style={{ 
-        backgroundColor: "#f2f4f8"}} >
+      <View>
           <Text style={{
-                    color:'#57636c',
+                    color:'white',
                     fontWeight:'bold',
                     fontSize: 30,
-                    marginTop: 30,
+                    padding:35,
+                    marginTop: 10,
                   }}>INFORMACION DE CONTACTO</Text>
         </View>
         </View>
@@ -36,22 +34,24 @@ const  Contacto= () => {
 <View
 style={{
     justifyContent: "center",
-    alignItems: "center",
     backgroundColor: '#eeeff0',
-    marginTop: 100,
+    padding:25
     }}>
         <Text
             style={{
             color: "#57636c",
+            paddingStart:35,
             fontSize: 15,
+            textAlign:"center",
             marginBottom: -20,
             marginTop: 5,
             marginStart: -60,
-          }}>Para realizar la llamada haga click en el numero.
+            paddingBottom:10
+          }}>* Para realizar la llamada haga click en el número
         </Text>
     <Text
           style={{
-            color: "#dc3545",
+            color: "#43BAC1",
             fontWeight: "bold",
             fontSize: 30,
             marginTop: 20,
@@ -64,8 +64,9 @@ style={{
             fontWeight: "bold",
             fontSize: 18,
             marginTop: 30,
+            textAlign:"center"
           }}>
-           - 4333311 -
+           ✆ 4333311
         </Text>
         <Text onPress={()=>{Linking.openURL('tel:+59178310081');}}
           style={{
@@ -74,12 +75,13 @@ style={{
             fontSize: 18,
             marginBottom: -20,
             marginTop: 20,
+            textAlign:"center"
           }}>
-            - 78310081 -
+            ✆ 78310081
         </Text>
         <Text
           style={{
-            color: "#dc3545",
+            color: "#43BAC1",
             fontWeight: "bold",
             fontSize: 30,
             marginTop: 40,
@@ -93,8 +95,9 @@ style={{
             fontWeight: "bold",
             fontSize: 18,
             marginTop: 30,
+            textAlign:"center"
           }}>
-            - 4333366 -
+            ✆ 4333366
         </Text>
         <Text
         onPress={()=>{Linking.openURL('tel:+591-78300180');}}
@@ -103,12 +106,13 @@ style={{
             fontWeight: "bold",
             fontSize: 18,
             marginTop: 20,
+            textAlign:"center"
           }}>
-            - 78300180 -
+            ✆ 78300180
         </Text>
         <Text
           style={{
-            color: "#dc3545",
+            color: "#43BAC1",
             fontWeight: "bold",
             fontSize: 30,
             marginBottom: -20,
@@ -122,8 +126,9 @@ style={{
             fontWeight: "bold",
             fontSize: 18,
             marginTop: 30,
+            textAlign:"center"
           }}>
-             - 4333344 -
+             ✆ 4333344
         </Text>
         <Text
           onPress={()=>{Linking.openURL('tel:+591-77484800');}}
@@ -132,12 +137,13 @@ style={{
             fontWeight: "bold",
             fontSize: 18,
             marginTop: 20,
+            textAlign:"center"
           }}>
-             - 77484800 -
+             ✆ 77484800
         </Text>
         <Text
           style={{
-            color: "#dc3545",
+            color: "#43BAC1",
             fontWeight: "bold",
             fontSize: 30,
             marginBottom: -20,
@@ -153,8 +159,9 @@ style={{
             fontSize: 18,
             marginTop: 30,
             marginBottom: 30,
+            textAlign:"center"
           }}>
-              info@medicard.com.bo
+             ✉️ info@medicard.com.bo
               </Text>
               </View>
       </ScrollView>

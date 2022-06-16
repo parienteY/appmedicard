@@ -1,15 +1,15 @@
 {
   "displayName":"Medicard",
   "expo": {
-    "name": "medicard",
-    "slug": "medicard",
+    "name": "medicardbo",
+    "slug": "medicardbo",
     "scheme": "medicard",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
-    "icon": "./assets/img/Logo.png",
+    "icon": "./assets/img/im.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/img/CARGA.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,9 +24,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets//img/Logo.png",
+        "foregroundImage": "./assets//img/im.png",
         "backgroundColor": "#FFFFFF"
       },
+      "versionCode":2,
       "package": "com.yurguen007.medicard"
     },
     "web": {

@@ -174,7 +174,7 @@ Hasta 70 % de descuento en las siguientes pruebas y/o exámenes:
                 fontWeight:'bold',
                 fontSize: 30,
                 marginTop: 0,}}>
-                  👋🏻 Hola!
+                  Hola!
                   </Text>
                   <Text style={{
                     color:'white',
@@ -483,7 +483,7 @@ Hasta 70 % de descuento en las siguientes pruebas y/o exámenes:
           
           <TouchableHighlight 
         underlayColor="#dc3545"
-        onPress={() => {navigation.navigate("Instituciones", { id: 6 })
+        onPress={() => {navigation.navigate("Instituciones", { id: 7 })
       }}
       style={{
             justifyContent:"center",

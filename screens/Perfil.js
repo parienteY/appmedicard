@@ -174,6 +174,7 @@ const estilos = StyleSheet.create({
     },
     contenido: {
         fontSize:15,
-        color: "gray"
+        color: "gray",
+        textTransform:"uppercase"
     }
 })                                                                                      
