@@ -1,5 +1,5 @@
 {
-  "displayName":"Medicard",
+  "displayName": "Medicard",
   "expo": {
     "name": "medicardbo",
     "slug": "medicardbo",
@@ -20,14 +20,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yurguen007.medicard"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets//img/im.png",
+        "foregroundImage": "./assets/img/im.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode":2,
+      "versionCode": 2,
       "package": "com.yurguen007.medicard"
     },
     "web": {
