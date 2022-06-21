@@ -5,16 +5,6 @@ import { Button } from 'react-native-paper';
 export default function Instituciones( {route,navigation}){
     const [actual, setActual] = useState({});
 
-    const openGps = (lat, lng) => {
-        var scheme = Platform.OS === 'ios' ? 'maps:' : 'geo:';
-        var url = scheme + `${lat},${lng}`;
-        // Linking.openURL(url);
-        Linking.openURL(
-          Platform.OS === 'ios'
-            ? 'googleMaps://app?saddr=6.931970+79.857750&daddr=6.909877+79.848521'
-            : `google.navigation:q=${lat}+${lng}`
-        )
-      }
 
     useEffect(() => {
         buscarPorId();
@@ -28,8 +18,6 @@ export default function Instituciones( {route,navigation}){
             pagina: "www.clinicabuscamed.com",
             imagen:require("../assets/img/Buscamed.jpg"),
             archivo:"https://www.medicard.com.bo/archivos/buscamed.pdf",
-            longitud:'-17.373925337361474',
-            latitud:'-66.14947800427645',
         },
         {
             id: 2,
@@ -39,8 +27,6 @@ export default function Instituciones( {route,navigation}){
             pagina: "siemen-rt@hotmail.com",
             imagen:require("../assets/img/reenfermeria.jpeg"),
             archivo:"https://www.medicard.com.bo/archivos/redenfermeria.pdf",
-            longitud:'-17.390235900879635',
-            latitud:'-66.14713600280393',
         },
         {
             id: 3,
@@ -52,8 +38,6 @@ export default function Instituciones( {route,navigation}){
             pagina: "unimagen2004@hotmail.com",
             imagen:require("../assets/img/Unimagen.jpg"),
             archivo:"https://www.medicard.com.bo/archivos/unimagen.pdf",
-            longitud:'-17.38535609712205',
-            latitud:'-66.14894435501316',
         },
         {
             id:4,
@@ -63,8 +47,6 @@ export default function Instituciones( {route,navigation}){
             pagina: "vivianmonicachavezsubieta@hotmail.com",
             imagen:require("../assets/img/Coldent.jpeg"),
             archivo:"https://www.medicard.com.bo/archivos/cold.pdf",
-            longitud:'-17.3696179852243185',
-            latitud:'-66.16032667183222',
         },
         {
             id: 5,
@@ -74,8 +56,6 @@ export default function Instituciones( {route,navigation}){
             pagina:"laboratoriomarbella@gmail.com",
             imagen:require("../assets/img/Marbella.jpg"),
             archivo:"https://www.medicard.com.bo/archivos/marbella.pdf",
-            longitud:'-17.391271490344565',
-            latitud:'-66.15474807067189',
         },
         {
             id:6,
@@ -85,12 +65,10 @@ export default function Instituciones( {route,navigation}){
             pagina: "contacto@clinicaloslirios.com",
             imagen:require("../assets/img/Lirios.jpg"),
             archivo:"https://www.medicard.com.bo/archivos/LIRIOS2.pdf",
-            longitud:'-17.388090195308123',
-            latitud:'-66.14495187243007',
         },
         {
             id:7,
-            nombre: "C.A.O. Servicio de Atención Oftalmológica",
+            nombre: "C.A.O. - UNICO",
             direccion: "Calle Colombia N°810 esq. 16 de Julio Edificio Guadalupe 2° Piso Cons. 3",
             contacto: "+591 (4)4661452 - +591 70758337",
             pagina: "meguerragueo@gmail.com",
@@ -131,26 +109,12 @@ export default function Instituciones( {route,navigation}){
                 </View>
                 <View style={{
                     flexDirection:"row",
+                    alignSelf:"center",
                 }}>
-                      <Button mode="contained" disabled={false} style={{
-                  backgroundColor:"#43BAC1",
-                //   height:38,
-                //   width:300,
-                height:50,
-                width:150,
-                marginStart:5,
-                padding:5,
-                }}
-                onPress={() => {
-                    openGps(actual.longitud, actual.latitud)
-                  }}>
- <Text style={{fontSize:11}}>
-                  VER UBICACIÓN
-                    </Text></Button>
                     <Button mode="contained" disabled={false} style={{
                   backgroundColor:"#E62D28",
                 //   height:38,
-                marginStart: 5,
+                marginStart: 0,
                 //   width:300,
                 height:50,
                 padding:5,
